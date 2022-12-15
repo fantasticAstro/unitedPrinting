@@ -1,0 +1,95 @@
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: normal;
+	font-weight: bold;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-Bold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: italic;
+	font-weight: bold;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-BoldItalic.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: italic;
+	font-weight: bolder;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-ExtBdIta.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: italic;
+	font-weight: lighter;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-ExtLtIta.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: normal;
+	font-weight: bolder;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-ExtraBold.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: normal;
+	font-weight: lighter;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-ExtraLight.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: normal;
+	font-weight: light;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-Light.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: italic;
+	font-weight: light;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-LightItalic.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: italic;
+	font-weight: normal;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-MedIta.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: normal;
+	font-weight: normal;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-Medium.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: italic;
+	font-weight: normal;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-RegIta.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'Helvetica Now';
+	font-style: normal;
+	font-weight: normal;
+	src: url('../../../public/assets/fonts/HelveticaNowMicro-Regular.otf') format('opentype');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a {
+  font-family: 'Helvetica Now', sans-serif;
+}
