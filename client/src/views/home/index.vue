@@ -85,6 +85,7 @@ import { HOME_PRESETS } from '@/config';
 import Orbs from '@/components/ui/accent/orbs.vue';
 import HomeHeroText from './components/home-hero-text.vue';
 import HomeBackground from './components/home-background.vue';
+import { mapActions } from 'vuex';
 
 export default Vue.extend({
   name: 'home-view',
@@ -110,6 +111,8 @@ export default Vue.extend({
   }),
 
   created() {
+    this.handlePageLoad({ name: this.$route.name });
+
     this.preset = Math.floor(Math.random() * HOME_PRESETS.length);
 
     this.title = HOME_PRESETS[this.preset].title;
@@ -123,6 +126,10 @@ export default Vue.extend({
   },
 
   methods: {
+    ...mapActions('navigation', [
+      'handlePageLoad',
+    ]),
+
     changePreset() {
       this.preset = (this.preset + 1) % HOME_PRESETS.length;
       this.state = (this.state + 1) % 2;

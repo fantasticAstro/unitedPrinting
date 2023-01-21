@@ -1,18 +1,26 @@
 <template>
   <div :class="$style.component">
-    <span>
+    <span
+      :class="{[$style.active]: getCurrentPage === 'Home'}"
+      @click="goToHome">
       HOME
     </span>
 
-    <span>
+    <span
+      :class="{[$style.active]: getCurrentPage === 'About'}"
+      @click="goToAbout">
       ABOUT
     </span>
 
-    <span>
+    <span
+      :class="{[$style.active]: getCurrentPage === 'Services'}"
+      @click="goToServices">
       SERVICES
     </span>
 
-    <span>
+    <span
+      :class="{[$style.active]: getCurrentPage === 'Contact' || getCurrentPage === 'Quote'}"
+      @click="goToContact">
       CONTACT
     </span>
 
@@ -21,10 +29,29 @@
 </template>
 
 <script lang="ts">
+import {
+  mapActions,
+  mapGetters,
+} from 'vuex';
 import Vue from 'vue';
 
 export default Vue.extend({
   name: 'navigation-drawer',
+
+  computed: {
+    ...mapGetters('navigation', [
+      'getCurrentPage',
+    ]),
+  },
+
+  methods: {
+    ...mapActions('navigation', [
+      'goToHome',
+      'goToAbout',
+      'goToServices',
+      'goToContact',
+    ]),
+  },
 });
 </script>
 
@@ -45,7 +72,7 @@ export default Vue.extend({
     cursor: pointer;
     font-weight: 500;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.215);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.051);
 
     :last-of-type {
       margin-bottom: 0rem;
@@ -53,6 +80,10 @@ export default Vue.extend({
 
     &:hover {
       color: rgba(255, 255, 255, 0.714);
+    }
+
+    &.active {
+      font-weight: 800;
     }
   }
 }

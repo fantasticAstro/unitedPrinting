@@ -33,7 +33,17 @@ export const defaultState = (): NavigationState => ({
 const moduleState: NavigationState = defaultState();
 
 // Module getters
-const getters: GetterTree<NavigationState, any> = {};
+const getters: GetterTree<NavigationState, any> = {
+  /**
+   * Retrieves the current page name.
+   *
+   * @param {NavigationState} state Global State
+   * @returns {string} Page name.
+   */
+  getCurrentPage(state: NavigationState): string {
+    return state.currentPage;
+  },
+};
 
 // Module mutations
 const mutations: MutationTree<NavigationState> = {
@@ -97,8 +107,8 @@ const actions: ActionTree<NavigationState, any> = {
     state,
   }): void {
     try {
-      if (state.currentPage !== 'Home') {
-        router.push('/');
+      if (state.currentPage !== 'About') {
+        router.push('/about');
       }
     } catch (error) {
       dispatch('goTo404');
@@ -116,8 +126,8 @@ const actions: ActionTree<NavigationState, any> = {
     state,
   }): void {
     try {
-      if (state.currentPage !== 'Home') {
-        router.push('/');
+      if (state.currentPage !== 'Services') {
+        router.push('/services');
       }
     } catch (error) {
       dispatch('goTo404');
@@ -135,8 +145,27 @@ const actions: ActionTree<NavigationState, any> = {
     state,
   }): void {
     try {
-      if (state.currentPage !== 'Home') {
-        router.push('/');
+      if (state.currentPage !== 'contact') {
+        router.push('/contact');
+      }
+    } catch (error) {
+      dispatch('goTo404');
+    }
+  },
+
+  /**
+   * Routes the user to Quote page.
+   *
+   * @param {ActionContext<NavigationState, any>} context Vuex action context.
+   */
+  goToQuote({
+    dispatch,
+    rootGetters,
+    state,
+  }): void {
+    try {
+      if (state.currentPage !== 'Quote') {
+        router.push('/quote');
       }
     } catch (error) {
       dispatch('goTo404');
