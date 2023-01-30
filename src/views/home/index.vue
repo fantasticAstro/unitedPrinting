@@ -2,7 +2,9 @@
   <div :class="$style.component">
     <background :active="active" />
 
-    <hero-text :text="hero" />
+    <div :class="$style.content">
+      <hero-text :text="hero" />
+    </div>
   </div>
 </template>
 
@@ -61,7 +63,13 @@ export default Vue.extend({
 
 <style lang="scss" module>
 .component {
+  position: relative;
+}
+
+.content {
+  z-index: 1;
   display: grid;
   grid-template-columns: 10%;
+  position: absolute;
 }
 </style>

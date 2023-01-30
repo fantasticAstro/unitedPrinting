@@ -1,16 +1,18 @@
 <template>
   <div :class="$style.component">
-    <img
+    <div
       v-for="(image, index) in images"
       :key="`background-image-${index}`"
       :class="[
         $style.background,
         {
-          [$style.active]: active === index,
+          [$style.active]: index === active,
+          [$style.last]: index === active - 1 || (active === 0 && index === images.length - 1),
         },
       ]"
-      :src="resolveImage(image)"
-      alt="#" />
+      :style="{
+        backgroundImage: resolveImage(image),
+      }" />
   </div>
 </template>
 
@@ -52,13 +54,15 @@ export default Vue.extend({
      * @param {string} name Name of the image file.
      */
     resolveImage(name: string) {
-      const images = require.context(
-        '../../../assets/images',
-        false,
-        /\.png$/,
-      );
+      // const images = require.context(
+      //   '../../../assets/images',
+      //   false,
+      //   /\.png$/,
+      // );
 
-      return images(`./${name}.png`);
+      // return images(`./${name}.png`);
+
+      return `url(./img/${name}.png)`;
     },
   },
 });
@@ -74,14 +78,33 @@ export default Vue.extend({
   height: 100%;
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .background {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
   background-position: center;
   background-size: cover;
+  z-index: -2;
 
   &.active {
+    opacity: 1;
+    z-index: -1;
+    animation: fade-in 1s ease-in-out;
+  }
+
+  &.last {
     opacity: 1;
   }
 }

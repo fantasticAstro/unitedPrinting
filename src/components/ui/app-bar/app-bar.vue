@@ -2,7 +2,8 @@
   <v-app-bar
     color="transparent"
     app
-    flat>
+    flat
+    style="padding: 34px 0">
     <div :class="$style.content">
       <div :class="$style['title-wrapper']">
         <span :class="$style.bold">
@@ -60,25 +61,46 @@ $title-font-size: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
   span {
     font-size: $title-font-size;
     line-height: $title-font-size;
     color: white;
     font-weight: lighter;
+
     &.bold {
       font-weight: bold;
     }
   }
 }
+
 .location {
-  font-size: .8rem;
   color: white;
 }
+
 .vertical-spacer {
-  display: block;
   width: 1px;
   height: $title-font-size * 3;
   margin: 0 1rem;
   background: white;
+}
+
+.vertical-spacer,
+.location {
+  display: none;
+}
+
+@media screen and (min-width: 400px) {
+  .location,
+  .vertical-spacer {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .location,
+  .vertical-spacer {
+    display: block;
+  }
 }
 </style>
