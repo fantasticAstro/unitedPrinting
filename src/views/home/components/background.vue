@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.component">
-    <img
+    <div
       v-for="(image, index) in images"
       :key="`background-image-${index}`"
       :class="[
@@ -9,8 +9,9 @@
           [$style.active]: active === index,
         },
       ]"
-      :src="resolveImage(image)"
-      alt="#" />
+      :style="{
+        'background': `url('${resolveImage(image)}')`,
+      }" />
   </div>
 </template>
 
@@ -75,11 +76,15 @@ export default Vue.extend({
 }
 
 .background {
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  background-position: center;
+  background-position: center center;
   background-size: cover;
+  transition: opacity 1s ease;
 
   &.active {
     opacity: 1;
