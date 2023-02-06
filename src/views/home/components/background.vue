@@ -6,11 +6,16 @@
       :class="[
         $style.background,
         {
-          [$style.active]: active === index,
+          [$style.active]: index === active,
+          [$style.last]: index === active - 1 || (active === 0 && index === images.length - 1),
         },
       ]"
       :style="{
+<<<<<<< HEAD
         'background': `url('${resolveImage(image)}')`,
+=======
+        backgroundImage: resolveImage(image),
+>>>>>>> a1f7ccd12b553b19fb351a80c36feda38c447b53
       }" />
   </div>
 </template>
@@ -53,13 +58,15 @@ export default Vue.extend({
      * @param {string} name Name of the image file.
      */
     resolveImage(name: string) {
-      const images = require.context(
-        '../../../assets/images',
-        false,
-        /\.png$/,
-      );
+      // const images = require.context(
+      //   '../../../assets/images',
+      //   false,
+      //   /\.png$/,
+      // );
 
-      return images(`./${name}.png`);
+      // return images(`./${name}.png`);
+
+      return `url(./img/${name}.png)`;
     },
   },
 });
@@ -75,6 +82,15 @@ export default Vue.extend({
   height: 100%;
 }
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .background {
   position: absolute;
   left: 0;
@@ -84,9 +100,19 @@ export default Vue.extend({
   opacity: 0;
   background-position: center center;
   background-size: cover;
+<<<<<<< HEAD
   transition: opacity 1s ease;
+=======
+  z-index: -2;
+>>>>>>> a1f7ccd12b553b19fb351a80c36feda38c447b53
 
   &.active {
+    opacity: 1;
+    z-index: -1;
+    animation: fade-in 1s ease-in-out;
+  }
+
+  &.last {
     opacity: 1;
   }
 }
