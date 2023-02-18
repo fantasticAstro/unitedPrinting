@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app full-height>
     <app-bar></app-bar>
 
     <v-main>

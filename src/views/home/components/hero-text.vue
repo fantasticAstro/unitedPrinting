@@ -51,7 +51,8 @@ export default Vue.extend({
 
 .word {
   color: white;
-  font-size: 2rem;
+  font-size: 100px;
+  line-height: 112px;
   font-weight: 500;
 
   &.accent {
@@ -63,15 +64,15 @@ export default Vue.extend({
   }
 }
 
-@media screen and (min-width: 400px) {
-  .word {
-    font-size: 3rem;
-  }
-}
+// @media screen and (min-width: 400px) {
+//   .word {
+//     font-size: 3rem;
+//   }
+// }
 
-@media screen and (min-width: 800px) {
-  .word {
-    font-size: 4rem;
-  }
-}
+// @media screen and (min-width: 800px) {
+//   .word {
+//     font-size: 4rem;
+//   }
+// }
 </style>

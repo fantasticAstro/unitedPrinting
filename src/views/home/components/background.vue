@@ -11,11 +11,7 @@
         },
       ]"
       :style="{
-<<<<<<< HEAD
-        'background': `url('${resolveImage(image)}')`,
-=======
         backgroundImage: resolveImage(image),
->>>>>>> a1f7ccd12b553b19fb351a80c36feda38c447b53
       }" />
   </div>
 </template>
@@ -100,11 +96,7 @@ export default Vue.extend({
   opacity: 0;
   background-position: center center;
   background-size: cover;
-<<<<<<< HEAD
-  transition: opacity 1s ease;
-=======
   z-index: -2;
->>>>>>> a1f7ccd12b553b19fb351a80c36feda38c447b53
 
   &.active {
     opacity: 1;
