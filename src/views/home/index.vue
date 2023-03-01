@@ -6,12 +6,35 @@
       <hero-text
         :class="$style.hero"
         :text="hero" />
+
+      <div :class="$style.features">
+        <home-feature :class="$style.feature">
+          <template v-slot:top>
+            Serving clients
+          </template>
+
+          <template v-slot:bottom>
+            across the nation
+          </template>
+        </home-feature>
+
+        <home-feature :class="$style.feature">
+          <template v-slot:top>
+            Veteran owned
+          </template>
+
+          <template v-slot:bottom>
+            and operated
+          </template>
+        </home-feature>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 // Packages
+import { mapActions } from 'vuex';
 import Vue from 'vue';
 
 // Local Imports
@@ -20,9 +43,10 @@ import {
   Preset,
   PresetText,
   PRESET_TIMING,
-} from './config';
-import Background from './components/background.vue';
-import HeroText from './components/hero-text.vue';
+} from '@/views/home/config';
+import Background from '@/views/home/components/background.vue';
+import HeroText from '@/views/home/components/hero-text.vue';
+import HomeFeature from '@/views/home/components/feature.vue';
 
 export default Vue.extend({
   name: 'home-view',
@@ -30,6 +54,7 @@ export default Vue.extend({
   components: {
     Background,
     HeroText,
+    HomeFeature,
   },
 
   data: () => ({
@@ -39,6 +64,7 @@ export default Vue.extend({
   }),
 
   created() {
+    this.handlePageLoad({ name: this.$route.name });
     this.presets = PRESETS;
 
     setTimeout(this.changePreset, PRESET_TIMING);
@@ -54,6 +80,10 @@ export default Vue.extend({
   },
 
   methods: {
+    ...mapActions('navigation', [
+      'handlePageLoad',
+    ]),
+
     changePreset() {
       this.active = (this.active + 1) % this.presets.length;
 
@@ -70,8 +100,8 @@ export default Vue.extend({
 
 .content {
   display: grid;
-  grid-template-columns: 126px auto 126px;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 68px 126px 278px auto 278px 126px 68px;
+  grid-template-rows: 68px 120px auto 120px 68px;
   height: 100vh;
   overflow: hidden;
   position: absolute;
@@ -80,9 +110,18 @@ export default Vue.extend({
 }
 
 .hero {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.features {
+  display: flex;
+  flex-direction: row;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 5;
 }
 </style>

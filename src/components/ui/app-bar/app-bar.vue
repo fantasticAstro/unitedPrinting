@@ -2,31 +2,52 @@
   <div :class="$style.component">
     <div :class="$style.content">
       <div :class="$style['title-wrapper']">
-        <span :class="$style.bold">
+        <span
+          :class="{
+              [$style.bold]: true,
+              [$style.dark]: appBarShouldBeDark,
+            }">
           United
         </span>
 
-        <span :class="$style.bold">
+        <span
+          :class="{
+              [$style.bold]: true,
+              [$style.dark]: appBarShouldBeDark,
+            }">
           Printing
         </span>
 
-        <span>
+        <span :class="{
+            [$style.dark]: appBarShouldBeDark,
+          }">
           Company
         </span>
       </div>
 
-      <span :class="$style['vertical-spacer']" />
+      <span :class="{
+          [$style.dark]: appBarShouldBeDark,
+          [$style['vertical-spacer']]: true,
+        }" />
 
-      <span :class="$style.location">
+      <span
+        :class="{
+          [$style.dark]: appBarShouldBeDark,
+          [$style.location]: true,
+        }">
         Charlotte, NC
       </span>
 
-      <v-spacer />
+      <v-spacer :class="{
+          [$style.dark]: appBarShouldBeDark,
+        }"/>
 
       <v-btn
+        :color="buttonColor"
         dark
         dense
-        outlined>
+        outlined
+        @click="goToQuote">
         Request a Quote
       </v-btn>
     </div>
@@ -35,10 +56,38 @@
 
 <script lang="ts">
 // Packages
+import {
+  mapActions,
+  mapGetters,
+} from 'vuex';
 import Vue from 'vue';
 
 export default Vue.extend({
   name: 'app-bar',
+
+  methods: {
+    ...mapActions('navigation', [
+      'goToQuote',
+    ]),
+  },
+
+  computed: {
+    ...mapGetters('navigation', [
+      'appBarShouldBeDark',
+    ]),
+
+    /**
+     * Color of the button.
+     *
+     * @type {string}
+     */
+    buttonColor(): string {
+      if (this.appBarShouldBeDark) {
+        return '#FEE037';
+      }
+      return '#FFFFFF';
+    },
+  },
 });
 </script>
 
@@ -50,11 +99,11 @@ $title-line-height: 35px;
   position: absolute;
   width: 100vw;
   padding: 34px 0;
-  z-index: 1;
+  z-index: 2;
 }
 
 .content {
-  max-width: 1200px;
+  max-width: 1440px;
   width: calc(100% - 2rem);
   margin: 0 auto;
   display: flex;
@@ -73,6 +122,10 @@ $title-line-height: 35px;
     color: white;
     font-weight: lighter;
 
+    &.dark {
+      color: black;
+    }
+
     &.bold {
       font-size: $title-font-size;
       line-height: $title-line-height;
@@ -85,14 +138,22 @@ $title-line-height: 35px;
   font-size: 22px;
   font-weight: 100;
   color: white;
+
+  &.dark {
+    color: black;
+  }
 }
 
 .vertical-spacer {
   width: 1px;
   // Design dictated 78px, relying on ratios instead.
   height: (($title-line-height * 2) + ($title-line-height * 0.9)) * 0.77;
-  margin: 0 1rem;
+  margin: 0 32px;
   background: white;
+
+  &.dark {
+    background: black;
+  }
 }
 
 .vertical-spacer,

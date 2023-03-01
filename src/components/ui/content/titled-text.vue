@@ -39,17 +39,22 @@ export default Vue.extend({
   font-weight: 500;
 
   &.align-right {
-    flex-direction: row-reverse;
+    text-align: right;
   }
 }
 
 .title {
+  font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
   font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 55px;
 }
 
 .content {
-  font-size: 36px;
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media screen and (min-width: 400px) {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
+
 @font-face {
 	font-family: 'Helvetica Now';
 	font-style: normal;
@@ -22,7 +24,7 @@
 @font-face {
 	font-family: 'Helvetica Now';
 	font-style: italic;
-	font-weight: lighter;
+	font-weight: 50;
 	src: url('../../../public/assets/fonts/HelveticaNowMicro-ExtLtIta.otf') format('opentype');
 }
 
@@ -36,21 +38,21 @@
 @font-face {
 	font-family: 'Helvetica Now';
 	font-style: normal;
-	font-weight: lighter;
+	font-weight: 50;
 	src: url('../../../public/assets/fonts/HelveticaNowMicro-ExtraLight.otf') format('opentype');
 }
 
 @font-face {
 	font-family: 'Helvetica Now';
 	font-style: normal;
-	font-weight: light;
+	font-weight: 100;
 	src: url('../../../public/assets/fonts/HelveticaNowMicro-Light.otf') format('opentype');
 }
 
 @font-face {
 	font-family: 'Helvetica Now';
 	font-style: italic;
-	font-weight: light;
+	font-weight: 100;
 	src: url('../../../public/assets/fonts/HelveticaNowMicro-LightItalic.otf') format('opentype');
 }
 

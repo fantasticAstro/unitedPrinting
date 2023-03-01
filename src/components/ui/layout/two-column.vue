@@ -44,7 +44,8 @@ export default Vue.extend({
 <style lang="scss" module>
 .component {
   display: flex;
-  max-width: 1080px;
+  max-width: 1440px;
+  width: calc(100% - 4rem);
   margin: 0 auto;
   flex-wrap: wrap;
 }
