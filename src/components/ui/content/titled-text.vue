@@ -48,7 +48,7 @@ export default Vue.extend({
   text-transform: uppercase;
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 55px;
+  margin-bottom: 10px;
 }
 
 .content {

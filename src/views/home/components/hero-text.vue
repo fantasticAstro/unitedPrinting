@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.component">
+  <div :class="$style.content">
     <span
       v-html="convertedText"
       :class="$style.word" />
@@ -50,13 +50,18 @@ export default Vue.extend({
 <style lang="scss" module>
 .component {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 100%;
+}
+
+.content {
+  display: flex;
   flex-wrap: wrap;
 }
 
 .word {
   color: white;
-  font-size: 32px;
   font-weight: 500;
   display: block;
   transition: color 1s ease;
@@ -70,27 +75,27 @@ export default Vue.extend({
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 599px) {
-  .word {
-    font-size: 80px;
-  }
-}
+// @media screen and (min-width: 400px) and (max-width: 599px) {
+//   .word {
+//     font-size: 80px;
+//   }
+// }
 
 @media screen and (min-width: 600px) {
   .word {
-    font-size: 100px;
+    font-size: 12px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .word {
-    font-size: 100px;
+    font-size: 100px !important;
   }
 }
 
-@media screen and (min-width: 1920px) {
-  .word {
-    font-size: 100px;
-  }
-}
+// @media screen and (min-width: 1920px) {
+//   .word {
+//     font-size: 100px;
+//   }
+// }
 </style>
