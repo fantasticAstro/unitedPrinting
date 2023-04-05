@@ -82,10 +82,10 @@ export default Vue.extend({
   cursor: pointer;
   display: inline-block;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 27px;
   margin: 18px 0;
   color: white;
-  font-weight: 50;
+  font-weight: 400;
   text-align: right;
   transition: color .3s ease;
   text-transform: uppercase;
@@ -96,7 +96,7 @@ export default Vue.extend({
   }
 
   &.active {
-    font-weight: 500;
+    font-weight: 600;
   }
 
   &.dark {

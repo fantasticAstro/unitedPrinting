@@ -26,6 +26,7 @@ export default Vue.extend({
 .component {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   width: calc(100vw - 4rem);
   max-width: 20rem;
 
@@ -33,7 +34,7 @@ export default Vue.extend({
     font-size: 22px;
     line-height: 26px;
     color: white;
-    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.109);
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.099);
 
     &:first-of-type {
       font-weight: 300;

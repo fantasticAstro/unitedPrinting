@@ -6,6 +6,8 @@ export interface PresetText {
 export interface Preset {
   title: PresetText[];
   background: string;
+  rings: boolean;
+  veteran: boolean;
 }
 
 /**
@@ -79,6 +81,8 @@ export const PRESETS: Preset[] = [
       },
     ],
     background: 'aerial-forest',
+    rings: false,
+    veteran: false,
   },
   {
     title: [
@@ -104,6 +108,8 @@ export const PRESETS: Preset[] = [
       },
     ],
     background: 'gradient',
+    rings: true,
+    veteran: false,
   },
   {
     title: [
@@ -125,5 +131,7 @@ export const PRESETS: Preset[] = [
       },
     ],
     background: 'american-flag',
+    rings: false,
+    veteran: true,
   },
 ];

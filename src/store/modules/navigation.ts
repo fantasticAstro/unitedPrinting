@@ -21,7 +21,15 @@ import router from '../../router';
 
 // State interface
 export interface NavigationState {
+  /**
+   * Name of current page.
+   */
   currentPage: string;
+
+  /**
+   * Width of current page.
+   */
+  width: number;
 }
 
 /**
@@ -37,12 +45,17 @@ export const PAGES_ENUM = {
   QUOTE: 'quote',
 };
 
-// Simple page object.
+/**
+ * Simple page object.
+ */
 export interface PageObject {
   title: string;
   name: string;
 }
 
+/**
+ * Base page objects with names.
+ */
 export const BASE_PAGES: Record<string, PageObject> = {
   HOME: {
     title: 'Home',
@@ -70,6 +83,11 @@ export const defaultState = (): NavigationState => ({
    * @type {string}
    */
   currentPage: '',
+
+  /**
+   * Width of screen.
+   */
+  width: -1,
 });
 
 // Module state
@@ -118,6 +136,66 @@ const getters: GetterTree<NavigationState, any> = {
   appBarShouldBeDark(state: NavigationState): boolean {
     return state.currentPage === PAGES_ENUM.QUOTE;
   },
+
+  /**
+   * Retrieves with width of the view window.
+   *
+   * @param {NavigationState} state Module state.
+   * @returns {number} The width of the page.
+   */
+  getWidth(state: NavigationState): number {
+    return state.width;
+  },
+
+  /**
+   * Whether the width of the viewport is small.
+   *
+   * @param {NavigationState} state Module state.
+   * @returns {number} Whether the width of the viewport is small.
+   */
+  isSmaller(state: NavigationState): boolean {
+    return state.width < 600;
+  },
+
+  /**
+   * Whether the width of the viewport is small.
+   *
+   * @param {NavigationState} state Module state.
+   * @returns {number} Whether the width of the viewport is small.
+   */
+  isSmall(state: NavigationState): boolean {
+    return state.width < 720;
+  },
+
+  /**
+   * Whether the width of the viewport is medium.
+   *
+   * @param {NavigationState} state Module state.
+   * @returns {number} Whether the width of the viewport is medium.
+   */
+  isMedium(state: NavigationState): boolean {
+    return state.width >= 720 && state.width < 1200;
+  },
+
+  /**
+   * Whether the width of the viewport is large.
+   *
+   * @param {NavigationState} state Module state.
+   * @returns {number} Whether the width of the viewport is large.
+   */
+  isLarge(state: NavigationState): boolean {
+    return state.width >= 1200 && state.width < 1920;
+  },
+
+  /**
+   * Whether the width of the viewport is larger.
+   *
+   * @param {NavigationState} state Module state.
+   * @returns {number} Whether the width of the viewport is larger.
+   */
+  isLarger(state: NavigationState): boolean {
+    return state.width >= 1920;
+  },
 };
 
 // Module mutations
@@ -133,6 +211,19 @@ const mutations: MutationTree<NavigationState> = {
     page: string,
   ): void {
     state.currentPage = page;
+  },
+
+  /**
+   * Sets value of width of viewport.
+   *
+   * @param {NavigationState} state Module state.
+   * @param {number} width Width of the page.
+   */
+  setWidth(
+    state: NavigationState,
+    width: number,
+  ): void {
+    state.width = width;
   },
 };
 
@@ -150,6 +241,15 @@ const actions: ActionTree<NavigationState, any> = {
     { name },
   ): void {
     commit('setCurrentPage', name);
+  },
+
+  /**
+   * On each viewport resize.
+   *
+   * @param {ActionContext<NavigationState, any>} context Vuex action context.
+   */
+  handleResize({ commit }): void {
+    commit('setWidth', window.innerWidth);
   },
 
   /**

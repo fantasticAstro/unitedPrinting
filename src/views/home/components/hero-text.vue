@@ -1,6 +1,7 @@
 <template>
   <div :class="$style.content">
     <span
+      v-if="show"
       v-html="convertedText"
       :class="$style.word" />
   </div>
@@ -29,6 +30,10 @@ export default Vue.extend({
     },
   },
 
+  data: () => ({
+    show: true,
+  }),
+
   computed: {
     /**
      * A way to enforce type?
@@ -44,6 +49,20 @@ export default Vue.extend({
       }).join(' ');
     },
   },
+
+  watch: {
+    convertedText() {
+      this.show = false;
+
+      setTimeout(this.reshow, 50);
+    },
+  },
+
+  methods: {
+    reshow(): void {
+      this.show = true;
+    },
+  },
 });
 </script>
 
@@ -52,19 +71,24 @@ export default Vue.extend({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 100%;
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 982px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .word {
   color: white;
-  font-weight: 500;
+  font-weight: 600;
   display: block;
   transition: color 1s ease;
+  animation: slide-in .4s ease-in-out;
 
   &.accent {
     color: #FEE037;
@@ -75,27 +99,34 @@ export default Vue.extend({
   }
 }
 
-// @media screen and (min-width: 400px) and (max-width: 599px) {
-//   .word {
-//     font-size: 80px;
-//   }
-// }
-
-@media screen and (min-width: 600px) {
-  .word {
-    font-size: 12px;
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 600px) and (max-width: 719px) {
   .word {
-    font-size: 100px !important;
+    font-size: 80px;
   }
 }
 
-// @media screen and (min-width: 1920px) {
-//   .word {
-//     font-size: 100px;
-//   }
-// }
+@media screen and (min-width: 720px) and (max-width: 1919px) {
+  .word {
+    font-size: 78px;
+    line-height: 88px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .word {
+    line-height: 110px;
+    font-size: 100px;
+  }
+}
 </style>

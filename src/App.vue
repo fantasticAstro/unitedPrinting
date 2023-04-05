@@ -1,17 +1,25 @@
 <template>
-  <v-app full-height>
+  <v-app
+    v-resize="handleResize"
+    full-height>
     <app-bar></app-bar>
 
     <v-main :class="$style.main">
       <router-view/>
 
-      <navigation-menu :class="$style.navigation" />
+      <navigation-menu
+        v-if="isLarge || isLarger"
+        :class="$style.navigation" />
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 // Packages
+import {
+  mapActions,
+  mapGetters,
+} from 'vuex';
 import Vue from 'vue';
 
 // Local Imports
@@ -25,6 +33,19 @@ export default Vue.extend({
     AppBar,
     NavigationMenu,
   },
+
+  computed: {
+    ...mapGetters('navigation', [
+      'isLarge',
+      'isLarger',
+    ]),
+  },
+
+  methods: {
+    ...mapActions('navigation', [
+      'handleResize',
+    ]),
+  },
 });
 </script>
 
@@ -36,7 +57,7 @@ export default Vue.extend({
 .navigation {
   position: absolute;
   right: 0;
-  top: calc(30vh - 116px);
+  top: calc(45vh - 116px);
   z-index: 2;
 }
 </style>

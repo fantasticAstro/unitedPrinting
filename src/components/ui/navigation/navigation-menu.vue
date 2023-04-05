@@ -59,7 +59,7 @@ export default Vue.extend({
         .map((page: PageObject) => page.name)
         .findIndex((value) => (value === this.getPage));
 
-      return `${(index * (22 + 36)) + 22}px`;
+      return `${(index * (27 + 36)) + 22}px`;
     },
   },
 

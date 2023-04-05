@@ -1,7 +1,10 @@
 <template>
   <div :class="$style.component">
     <div :class="$style.content">
-      <div :class="$style['title-wrapper']">
+      <div
+        :class="$style['title-wrapper']"
+        @click="goToHome"
+        @keydown="goToHome">
         <span
           :class="{
               [$style.bold]: true,
@@ -25,12 +28,16 @@
         </span>
       </div>
 
-      <span :class="{
+      <span
+        v-if="isLarge || isLarger"
+        :class="{
           [$style.dark]: appBarShouldBeDark,
           [$style['vertical-spacer']]: true,
         }" />
 
       <span
+        v-if="isLarge || isLarger"
+        :outlined="!condense"
         :class="{
           [$style.dark]: appBarShouldBeDark,
           [$style.location]: true,
@@ -42,14 +49,9 @@
           [$style.dark]: appBarShouldBeDark,
         }"/>
 
-      <v-btn
-        :color="buttonColor"
-        dark
-        dense
-        outlined
-        @click="goToQuote">
-        Request a Quote
-      </v-btn>
+      <app-bar-quote-button v-if="!(isSmaller || isSmall)" />
+
+      <app-bar-menu-button v-if="isSmall || isMedium" />
     </div>
   </div>
 </template>
@@ -62,38 +64,40 @@ import {
 } from 'vuex';
 import Vue from 'vue';
 
+// Local Imports
+import AppBarQuoteButton from './app-bar-quote-button.vue';
+import AppBarMenuButton from './app-bar-menu-button.vue';
+
 export default Vue.extend({
   name: 'app-bar',
 
-  methods: {
-    ...mapActions('navigation', [
-      'goToQuote',
-    ]),
+  components: {
+    AppBarQuoteButton,
+    AppBarMenuButton,
   },
 
   computed: {
     ...mapGetters('navigation', [
       'appBarShouldBeDark',
+      'isSmaller',
+      'isSmall',
+      'isMedium',
+      'isLarge',
+      'isLarger',
     ]),
+  },
 
-    /**
-     * Color of the button.
-     *
-     * @type {string}
-     */
-    buttonColor(): string {
-      if (this.appBarShouldBeDark) {
-        return '#FEE037';
-      }
-      return '#FFFFFF';
-    },
+  methods: {
+    ...mapActions('navigation', [
+      'goToHome',
+    ]),
   },
 });
 </script>
 
 <style lang="scss" module>
 $title-font-size: 28px;
-$title-line-height: 35px;
+$title-line-height: 28px;
 
 .component {
   position: absolute;
@@ -103,8 +107,8 @@ $title-line-height: 35px;
 }
 
 .content {
-  max-width: 1440px;
-  width: calc(100% - 2rem);
+  max-width: 1744px;
+  width: calc(100% - 132px);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -114,11 +118,12 @@ $title-line-height: 35px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  cursor: pointer;
 
   span {
     // Design specified 24px and 29px, relying on ratios instead.
-    font-size: $title-font-size * 0.86;
-    line-height: $title-line-height * 0.9;
+    font-size: $title-font-size * 0.6 * 0.86;
+    line-height: $title-line-height * 0.6 * 0.9;
     color: white;
     font-weight: lighter;
 
@@ -127,8 +132,8 @@ $title-line-height: 35px;
     }
 
     &.bold {
-      font-size: $title-font-size;
-      line-height: $title-line-height;
+      font-size: $title-font-size * 0.6;
+      line-height: $title-line-height * 0.6;
       font-weight: bold;
     }
   }
@@ -156,22 +161,54 @@ $title-line-height: 35px;
   }
 }
 
-.vertical-spacer,
-.location {
-  display: none;
-}
+@media screen and (min-width: 720px) and (max-width: 1199px) {
+  .title-wrapper {
+    span {
+      // Design specified 24px and 29px, relying on ratios instead.
+      font-size: $title-font-size * 0.8 * 0.86;
+      line-height: $title-line-height * 0.8 * 0.9;
 
-@media screen and (min-width: 400px) {
-  .location,
-  .vertical-spacer {
-    display: block;
+      &.bold {
+        font-size: $title-font-size * 0.8;
+        line-height: $title-line-height * 0.8;
+      }
+    }
   }
 }
 
-@media screen and (min-width: 800px) {
-  .location,
-  .vertical-spacer {
-    display: block;
+@media screen and (max-width: 1199px) {
+  .content {
+    width: calc(100% - 80px) !important;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+  .title-wrapper {
+    span {
+      // Design specified 24px and 29px, relying on ratios instead.
+      font-size: $title-font-size * 0.9 * 0.86;
+      line-height: $title-line-height * 0.9 * 0.9;
+
+      &.bold {
+        font-size: $title-font-size * 0.9;
+        line-height: $title-line-height * 0.9;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .title-wrapper {
+    span {
+      // Design specified 24px and 29px, relying on ratios instead.
+      font-size: $title-font-size * 0.86;
+      line-height: $title-line-height * 0.9;
+
+      &.bold {
+        font-size: $title-font-size;
+        line-height: $title-line-height;
+      }
+    }
   }
 }
 </style>
