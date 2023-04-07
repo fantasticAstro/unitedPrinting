@@ -41,6 +41,10 @@ export default Vue.extend({
     ]),
   },
 
+  created() {
+    this.handleResize();
+  },
+
   methods: {
     ...mapActions('navigation', [
       'handleResize',

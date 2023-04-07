@@ -107,8 +107,7 @@ $title-line-height: 28px;
 }
 
 .content {
-  max-width: 1744px;
-  width: calc(100% - 132px);
+  width: calc(100% - 80px);
   margin: 0 auto;
   display: flex;
   align-items: center;

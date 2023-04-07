@@ -3,12 +3,19 @@
     <span
       v-if="show"
       v-html="convertedText"
-      :class="$style.word" />
+      :class="{
+        [$style.word]: true,
+        [$style.smaller]: isSmaller,
+        [$style.small]: isSmall,
+        [$style.medium]: isMedium,
+        [$style.large]: isLarge,
+      }" />
   </div>
 </template>
 
 <script lang="ts">
 // Packages
+import { mapGetters } from 'vuex';
 import Vue from 'vue';
 
 // Local Imports
@@ -35,6 +42,14 @@ export default Vue.extend({
   }),
 
   computed: {
+    ...mapGetters('navigation', [
+      'isSmaller',
+      'isSmall',
+      'isMedium',
+      'isLarge',
+      'isLarger',
+    ]),
+
     /**
      * A way to enforce type?
      *
@@ -86,6 +101,8 @@ export default Vue.extend({
 .word {
   color: white;
   font-weight: 600;
+  line-height: 110px;
+  font-size: 100px;
   display: block;
   transition: color 1s ease;
   animation: slide-in .4s ease-in-out;
@@ -97,6 +114,26 @@ export default Vue.extend({
   &:not(:last-child) {
     margin-right: 1rem;
   }
+
+  &.large {
+    font-size: 78px;
+    line-height: 88px;
+  }
+
+  &.medium {
+    font-size: 60px;
+    line-height: 70px;
+  }
+
+  &.small {
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+  &.smaller {
+    font-size: 32px;
+    line-height: 36px;
+  }
 }
 
 @keyframes slide-in {
@@ -107,26 +144,6 @@ export default Vue.extend({
   100% {
     opacity: 1;
     transform: translateX(0px);
-  }
-}
-
-@media screen and (min-width: 600px) and (max-width: 719px) {
-  .word {
-    font-size: 80px;
-  }
-}
-
-@media screen and (min-width: 720px) and (max-width: 1919px) {
-  .word {
-    font-size: 78px;
-    line-height: 88px;
-  }
-}
-
-@media screen and (min-width: 1920px) {
-  .word {
-    line-height: 110px;
-    font-size: 100px;
   }
 }
 </style>

@@ -8,6 +8,7 @@ export interface Preset {
   background: string;
   rings: boolean;
   veteran: boolean;
+  supplementaryText: string;
 }
 
 /**
@@ -83,6 +84,7 @@ export const PRESETS: Preset[] = [
     background: 'aerial-forest',
     rings: false,
     veteran: false,
+    supplementaryText: 'Responsible businesses consider the long term effects of their decisions on the greater public. By making environmental consciousness fundamental to our production, we work to ensure that future generations will enjoy a healthy, biodiverse planet. Read more...',
   },
   {
     title: [
@@ -110,6 +112,7 @@ export const PRESETS: Preset[] = [
     background: 'gradient',
     rings: true,
     veteran: false,
+    supplementaryText: 'Responsible businesses consider the long term effects of their decisions on the greater public. By making environmental consciousness fundamental to our production, we work to ensure that future generations will enjoy a healthy, biodiverse planet. Read more...',
   },
   {
     title: [
@@ -133,5 +136,6 @@ export const PRESETS: Preset[] = [
     background: 'american-flag',
     rings: false,
     veteran: true,
+    supplementaryText: 'Responsible businesses consider the long term effects of their decisions on the greater public. By making environmental consciousness fundamental to our production, we work to ensure that future generations will enjoy a healthy, biodiverse planet. Read more...',
   },
 ];

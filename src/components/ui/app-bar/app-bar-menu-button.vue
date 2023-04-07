@@ -2,17 +2,10 @@
   <v-btn
     :class="$style.component"
     :color="buttonColor"
-    :outlined="!condense"
-    :text="condense"
+    outlined
     dark
     @click="goToQuote">
-    <v-icon
-      v-if="condense"
-      size="28">
-      mdi-menu
-    </v-icon>
-
-    {{ condense ? '' : 'Menu' }}
+    Menu
   </v-btn>
 </template>
 
@@ -57,6 +50,7 @@ export default Vue.extend({
 
 <style lang="scss" module>
 .component {
+  align-self: flex-start;
   width: 76px;
   height: 66px;
   margin-left: 24px;

@@ -48,6 +48,7 @@ export default Vue.extend({
 
 <style lang="scss" module>
 .component {
+  align-self: flex-start;
   width: 190px;
   height: 66px;
 }
