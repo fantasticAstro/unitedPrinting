@@ -70,6 +70,18 @@
           @click="handleClick('contact')">
           Contact Us
         </span>
+
+        <span
+          :class="{
+            [$style.active]: getPage === 'quote',
+          }"
+          :style="{
+            '--index': 4,
+          }"
+          @keydown="goToContact"
+          @click="handleClick('quote')">
+          Request a Quote
+        </span>
       </div>
     </div>
   </div>
@@ -120,6 +132,7 @@ export default Vue.extend({
       'goToAbout',
       'goToServices',
       'goToContact',
+      'goToQuote',
     ]),
 
     activate() {
@@ -147,6 +160,9 @@ export default Vue.extend({
           break;
         case 'services':
           this.goToServices();
+          break;
+        case 'quote':
+          this.goToQuote();
           break;
         default:
           this.goToHome();
@@ -203,6 +219,7 @@ export default Vue.extend({
     line-height: 64px;
     transition: color .3s ease-in-out, transform .2s ease-in-out;
     font-weight: bolder;
+    text-align: right;
     cursor: pointer;
     animation: slide-in .3s ease-in-out calc(var(--index) * .08s), hide calc(var(--index) * .08s);
 
@@ -213,6 +230,10 @@ export default Vue.extend({
 
     &.active {
       color: #FEE037;
+    }
+
+    &:last-of-type {
+      margin-top: 40px;
     }
   }
 }

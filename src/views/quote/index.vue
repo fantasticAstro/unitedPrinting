@@ -23,7 +23,7 @@
             <div :class="$style.column">
               <v-text-field
                 v-model="name"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Name"
                 style="margin-bottom: 7px"
@@ -31,7 +31,7 @@
 
               <v-text-field
                 v-model="email"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Email"
                 style="margin-bottom: 7px"
@@ -39,7 +39,7 @@
 
               <v-text-field
                 v-model="phone"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Phone"
                 style="margin-bottom: 7px"
@@ -47,7 +47,7 @@
 
               <v-text-field
                 v-model="companyName"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Company Name"
                 style="margin-bottom: 7px"
@@ -55,7 +55,7 @@
 
               <v-textarea
                 v-model="description"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Description..."
                 style="margin-bottom: 7px"
@@ -63,7 +63,7 @@
 
               <v-text-field
                 v-model="stock"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Stock"
                 style="margin-bottom: 7px"
@@ -73,7 +73,7 @@
             <div :class="[$style.column, $style.second]">
               <v-select
                 v-model="colorsFront"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Colors (front)"
                 style="margin-bottom: 7px"
@@ -81,7 +81,7 @@
 
               <v-select
                 v-model="colorsBack"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Colors (back)"
                 style="margin-bottom: 7px"
@@ -89,7 +89,7 @@
 
               <v-select
                 v-model="proofType"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Proof type"
                 style="margin-bottom: 7px"
@@ -97,7 +97,7 @@
 
               <v-select
                 v-model="shipping"
-                color="#FEE037"
+                color="#FFFFFF"
                 dark
                 label="Shipping"
                 style="margin-bottom: 7px"
@@ -228,8 +228,8 @@ export default Vue.extend({
   grid-template-columns: 40px 16px auto 16px 40px;
   grid-template-rows: 117px 60px auto;
   width: 100vw;
-  height: calc(100vh);
   background: #EC6357;
+  padding-bottom: 40px;
 }
 
 .center {
