@@ -37,7 +37,6 @@
 
       <span
         v-if="isLarge || isLarger"
-        :outlined="!condense"
         :class="{
           [$style.dark]: appBarShouldBeDark,
           [$style.location]: true,
@@ -51,7 +50,7 @@
 
       <app-bar-quote-button v-if="!(isSmaller || isSmall)" />
 
-      <app-bar-menu-button v-if="isSmall || isMedium" />
+      <app-bar-menu-button />
     </div>
   </div>
 </template>
@@ -118,6 +117,7 @@ $title-line-height: 28px;
   flex-direction: column;
   align-items: flex-end;
   cursor: pointer;
+  z-index: 1;
 
   span {
     // Design specified 24px and 29px, relying on ratios instead.
@@ -125,6 +125,7 @@ $title-line-height: 28px;
     line-height: $title-line-height * 0.6 * 0.9;
     color: white;
     font-weight: lighter;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.099);
 
     &.dark {
       color: black;
@@ -142,6 +143,8 @@ $title-line-height: 28px;
   font-size: 22px;
   font-weight: 100;
   color: white;
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.099);
+  z-index: 1;
 
   &.dark {
     color: black;
@@ -154,6 +157,7 @@ $title-line-height: 28px;
   height: (($title-line-height * 2) + ($title-line-height * 0.9)) * 0.77;
   margin: 0 32px;
   background: white;
+  z-index: 1;
 
   &.dark {
     background: black;

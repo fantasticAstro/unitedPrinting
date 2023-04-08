@@ -1,27 +1,96 @@
 <template>
-  <v-btn
-    :class="$style.component"
-    :color="buttonColor"
-    outlined
-    dark
-    @click="goToQuote">
-    Menu
-  </v-btn>
+  <div :class="$style.component">
+    <v-btn
+      :class="$style.button"
+      :color="buttonColor"
+      outlined
+      dark
+      @click="activate">
+      Menu
+    </v-btn>
+
+    <div
+      v-if="active"
+      :class="$style.filter">
+      <div
+        v-click-outside="toggleActive"
+        :class="$style.menu">
+        <span
+          :class="{
+            [$style.active]: getPage === 'home',
+          }"
+          :style="{
+            '--index': 0,
+          }"
+          @keydown="goToContact"
+          @click="handleClick('home')">
+          Home
+        </span>
+
+        <span
+          :class="{
+            [$style.active]: getPage === 'about',
+          }"
+          :style="{
+            '--index': 1,
+          }"
+          @keydown="goToContact"
+          @click="handleClick('about')">
+          About
+        </span>
+
+        <span
+          :class="{
+            [$style.active]: getPage === 'services',
+          }"
+          :style="{
+            '--index': 2,
+          }"
+          @keydown="goToContact"
+          @click="handleClick('services')">
+          Services
+        </span>
+
+        <span
+          :class="{
+            [$style.active]: getPage === 'contact',
+          }"
+          :style="{
+            '--index': 3,
+          }"
+          @keydown="goToContact"
+          @click="handleClick('contact')">
+          Contact
+        </span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">
 // Packages
-import { mapGetters } from 'vuex';
+import {
+  mapActions,
+  mapGetters,
+} from 'vuex';
 import Vue from 'vue';
 
 export default Vue.extend({
   name: 'app-bar-quote-button',
 
+  data: () => ({
+    active: false,
+  }),
+
   computed: {
     ...mapGetters('navigation', [
+      'getPage',
       'appBarShouldBeDark',
       'isSmaller',
       'isSmall',
+      'isMedium',
+      'isLarge',
+      'isLarger',
     ]),
 
     /**
@@ -35,14 +104,46 @@ export default Vue.extend({
       }
       return '#FFFFFF';
     },
+  },
+
+  methods: {
+    ...mapActions('navigation', [
+      'goToHome',
+      'goToAbout',
+      'goToServices',
+      'goToContact',
+    ]),
+
+    activate() {
+      if (!this.active) {
+        this.active = true;
+      }
+    },
+
+    toggleActive() {
+      this.active = !this.active;
+    },
 
     /**
-     * Whether the button should condense.
-     *
-     * @type {boolean}
+     * Handles button click.
+     * @param {Record<string, string>} args Event arguments.
+     * @param {string} args.name Page name.
      */
-    condense(): boolean {
-      return this.isSmaller || this.isSmall;
+    handleClick(name: string) {
+      switch (name) {
+        case 'contact':
+          this.goToContact();
+          break;
+        case 'about':
+          this.goToAbout();
+          break;
+        case 'services':
+          this.goToServices();
+          break;
+        default:
+          this.goToHome();
+      }
+      this.active = false;
     },
   },
 });
@@ -50,17 +151,89 @@ export default Vue.extend({
 
 <style lang="scss" module>
 .component {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: auto;
+}
+
+.button {
   align-self: flex-start;
   width: 76px;
   height: 66px;
   margin-left: 24px;
   font-size: 12px !important;
   padding: 4px 4px !important;
+  z-index: 1;
+}
+
+.filter {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 60px;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.475);
+  z-index: 0;
+  animation: fade-in .4s ease-in-out 0s;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  span {
+    --index: 0;
+    color: white;
+    font-size: 60px;
+    line-height: 64px;
+    transition: color .3s ease-in-out, transform .2s ease-in-out;
+    font-weight: bolder;
+    cursor: pointer;
+    animation: slide-in .3s ease-in-out calc(var(--index) * .08s), hide calc(var(--index) * .08s);
+
+    &:hover {
+      color: #fff3b1;
+      transform: translateX(-10px);
+    }
+
+    &.active {
+      color: #FEE037;
+    }
+  }
 }
 
 @media screen and (min-width: 720px) {
-  .component {
+  .button {
     padding: 19px 32px !important;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 </style>

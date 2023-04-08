@@ -9,6 +9,25 @@
 // }
 
 .v-btn--outlined {
-  border: 1.31 solid currentColor;
+  border: 1.77px solid currentColor !important;
   border-radius: 7.436px;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

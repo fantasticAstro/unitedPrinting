@@ -1,6 +1,14 @@
 <template>
   <div
-    :class="$style.component"
+    :class="[
+      $style.component,
+      {
+        [$style.smaller]: isSmaller,
+        [$style.small]: isSmall,
+        [$style.medium]: isMedium,
+        [$style.large]: isLarge,
+      },
+    ]"
     :style="{
       'background-image': `url('${src}')`,
     }">
@@ -9,6 +17,7 @@
 
 <script lang="ts">
 // Packages
+import { mapGetters } from 'vuex';
 import Vue from 'vue';
 
 export default Vue.extend({
@@ -23,6 +32,16 @@ export default Vue.extend({
       default: '#',
     },
   },
+
+  computed: {
+    ...mapGetters('navigation', [
+      'isSmaller',
+      'isSmall',
+      'isMedium',
+      'isLarge',
+      'isLarger',
+    ]),
+  },
 });
 </script>
 
@@ -31,11 +50,13 @@ export default Vue.extend({
   width: 100vw;
   height: 800px;
   background-size: cover;
-}
 
-@media screen and (min-width: 400px) {
-}
+  &.small {
+    height: 450px;
+  }
 
-@media screen and (min-width: 800px) {
+  &.large {
+    height: 520px;
+  }
 }
 </style>

@@ -51,6 +51,7 @@ export default Vue.extend({
   align-self: flex-start;
   width: 190px;
   height: 66px;
+  z-index: 1;
 }
 </style>
 

@@ -1,33 +1,25 @@
 <template>
-  <div :class="$style.component">
+  <div :class="[
+      $style.component,
+      {
+        [$style.smaller]: isSmaller,
+        [$style.small]: isSmall,
+        [$style.medium]: isMedium,
+        [$style.large]: isLarge,
+      },
+    ]">
     <background :active="active" />
 
-    <div :class="{
-        [$style.content]: true,
-        [$style.smaller]: isSmaller,
-        [$style.small]: isSmall,
-        [$style.medium]: isMedium,
-        [$style.large]: isLarge,
-      }">
-      <div :class="{
-        [$style.center]: true,
-        [$style.smaller]: isSmaller,
-        [$style.small]: isSmall,
-        [$style.medium]: isMedium,
-        [$style.large]: isLarge,
-      }">
+    <div :class="$style.content">
+      <div :class="$style.center">
         <div :class="$style['hero-text-wrapper']">
           <hero-text
-            :class="{
-              [$style.hero]: true,
-              [$style.smaller]: isSmaller,
-              [$style.small]: isSmall,
-              [$style.medium]: isMedium,
-              [$style.large]: isLarge,
-            }"
+            :class="$style.hero"
             :text="hero" />
 
-          <span :class="$style['supplementary-text']">
+          <span
+            v-if="isSmaller || isSmall"
+            :class="$style['supplementary-text']">
             {{ supplementaryText }}
           </span>
 
@@ -48,17 +40,11 @@
         </div>
 
         <rings v-if="isRings && (isLarge || isLarger)"/>
-
-        <veteran-seal v-if="isVeteran && (isLarge || isLarger)"/>
       </div>
 
       <div
         v-if="!(isSmall || isSmaller)"
-        :class="{
-          [$style.features]: true,
-          [$style.medium]: isMedium,
-          [$style.large]: isLarge,
-        }">
+        :class="$style.features">
         <home-feature :class="$style.feature">
           <template v-slot:top>
             Serving clients
@@ -82,11 +68,7 @@
 
       <span
         v-if="!(isSmaller || isSmall)"
-        :class="{
-          [$style.year]: true,
-          [$style.medium]: isMedium,
-          [$style.large]: isLarge,
-        }">
+        :class="$style.year">
         <span>
           1
         </span>
@@ -105,45 +87,29 @@
       </span>
 
       <dots
-        v-if="!(isSmaller || isSmall)"
-        :class="{
-          [$style['dots-corner-top-right']]: true,
-          [$style.medium]: isMedium,
-          [$style.large]: isLarge,
-        }"
+        v-if="!(isSmaller || isSmall || isLarge)"
+        :class="$style['dots-corner-top-right']"
         :height="3"
         :width="6"
         :fillRatio=".6" />
 
       <dots
         v-if="isSmaller || isSmall"
-        :class="{
-          [$style['dots-corner-top-right']]: true,
-          [$style.smaller]: isSmaller,
-          [$style.small]: isSmall,
-        }"
+        :class="$style['dots-corner-top-right']"
         :height="2"
         :width="5"
         :fillRatio=".6" />
 
       <dots
         v-if="!(isSmaller || isSmall)"
-        :class="{
-          [$style['dots-corner-bottom-right']]: true,
-          [$style.medium]: isMedium,
-          [$style.large]: isLarge,
-        }"
+        :class="$style['dots-corner-bottom-right']"
         :height="2"
         :width="11"
         :fillRatio=".6" />
 
       <dots
         v-if="!(isSmaller || isSmall)"
-        :class="{
-          [$style['dots-corner-bottom-left']]: true,
-          [$style.medium]: isMedium,
-          [$style.large]: isLarge,
-        }"
+        :class="$style['dots-corner-bottom-left']"
         :height="4"
         :width="4"
         :fillRatio=".6" />
@@ -183,7 +149,6 @@ import HeroText from '@/views/home/components/hero-text.vue';
 import HomeFeature from '@/views/home/components/feature.vue';
 import Dots from './components/dots.vue';
 import Rings from './components/rings.vue';
-import VeteranSeal from './components/veteran-seal.vue';
 import RequestQuotePopup from './components/request-quote-popup.vue';
 
 export default Vue.extend({
@@ -195,7 +160,6 @@ export default Vue.extend({
     HomeFeature,
     Dots,
     Rings,
-    VeteranSeal,
     RequestQuotePopup,
   },
 
@@ -278,30 +242,14 @@ export default Vue.extend({
   position: absolute;
   width: 100vw;
   z-index: 1;
-
-  &.smaller {
-    grid-template-columns: 20px 20px auto 20px 20px;
-    grid-template-rows: 117px auto 80px 40px 176px;
-  }
-
-  &.small {
-
-  }
-
-  &.medium {
-
-  }
-
-  &.large {
-
-  }
 }
 
-.supplementary-text {
-  font-size: 14px;
-  line-height: 18px;
-  color: white;
-  margin: 18px 0;
+.center {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  display: flex;
 }
 
 .hero-text-wrapper {
@@ -317,38 +265,18 @@ export default Vue.extend({
   align-items: flex-start;
 }
 
+.supplementary-text {
+  font-size: 14px;
+  line-height: 18px;
+  color: white;
+  margin: 18px 0;
+}
+
 .request-quote-popup {
   grid-column-start: 1;
   grid-column-end: 6;
   grid-row-start: 5;
   grid-row-end: 6;
-}
-
-.center {
-  grid-column-start: 5;
-  grid-column-end: 6;
-  grid-row-start: 4;
-  grid-row-end: 5;
-  display: flex;
-
-  &.smaller {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 4;
-  }
-
-  &.small {
-
-  }
-
-  &.medium {
-
-  }
-
-  &.large {
-
-  }
 }
 
 .features {
@@ -358,12 +286,6 @@ export default Vue.extend({
   grid-column-end: 6;
   grid-row-start: 5;
   grid-row-end: 6;
-
-  &.medium {
-  }
-
-  &.large {
-  }
 }
 
 .dots-corner-top-right {
@@ -371,21 +293,6 @@ export default Vue.extend({
   grid-column-end: 6;
   grid-row-start: 2;
   grid-row-end: 4;
-
-  &.smaller,
-  &.small {
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 3;
-    grid-row-end: 4;
-    align-self: flex-end;
-  }
-
-  &.medium,
-  &.large {
-    align-self: flex-start;
-    margin-left: auto;
-  }
 }
 
 .dots-corner-bottom-right {
@@ -394,12 +301,6 @@ export default Vue.extend({
   grid-column-end: 9;
   grid-row-start: 5;
   grid-row-end: 6;
-
-  &.medium {
-  }
-
-  &.large {
-  }
 }
 
 .dots-corner-bottom-left {
@@ -408,12 +309,6 @@ export default Vue.extend({
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 6;
-
-  &.medium {
-  }
-
-  &.large {
-  }
 }
 
 .established {
@@ -442,11 +337,90 @@ export default Vue.extend({
     font-size: 23px;
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.168);
   }
+}
 
-  &.medium {
+.smaller,
+.small {
+  .content {
+    grid-template-columns: 20px 20px auto 20px 20px;
+    grid-template-rows: 117px auto 80px 40px 176px;
   }
 
-  &.large {
+  .center {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 4;
+  }
+}
+
+.small {
+
+}
+
+.medium {
+
+}
+
+.large {
+  .content {
+    grid-template-columns: 40px 100px 90px auto 90px 100px 40px;
+    grid-template-rows: 34px 34px auto 66px 40px;
+  }
+
+  .center {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .year {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+  .features {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+
+  .dots-corner-bottom-left {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+
+  .dots-corner-bottom-right {
+    margin-left: auto;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+}
+
+.smaller,
+.small {
+  .dots-corner-top-right {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    align-self: flex-end;
+  }
+}
+
+.medium,
+.large {
+  .dots-corner-top-right {
+    align-self: flex-start;
+    margin-left: auto;
   }
 }
 </style>

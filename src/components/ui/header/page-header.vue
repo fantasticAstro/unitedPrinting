@@ -3,6 +3,10 @@
       $style.component,
       {
         [$style['align-right']]: align === 'right',
+        [$style.smaller]: isSmaller,
+        [$style.small]: isSmall,
+        [$style.medium]: isMedium,
+        [$style.large]: isLarge,
       },
     ]">
     <span :class="$style.content">
@@ -17,6 +21,7 @@
 
 <script lang="ts">
 // Packages
+import { mapGetters } from 'vuex';
 import Vue from 'vue';
 
 export default Vue.extend({
@@ -33,6 +38,16 @@ export default Vue.extend({
       default: false,
     },
   },
+
+  computed: {
+    ...mapGetters('navigation', [
+      'isSmaller',
+      'isSmall',
+      'isMedium',
+      'isLarge',
+      'isLarger',
+    ]),
+  },
 });
 </script>
 
@@ -46,6 +61,10 @@ export default Vue.extend({
 
   &.align-right {
     flex-direction: row-reverse;
+  }
+
+  &.small {
+    margin: 36px 0;
   }
 }
 
@@ -69,9 +88,30 @@ export default Vue.extend({
   top: 21px;
 }
 
-@media screen and (min-width: 400px) {
+.small {
+  .box {
+    height: 36px;
+    border: 4.459px solid #FEE137;
+    width: 100vw;
+    right: calc(100% - 90px);
+    top: 10px;
+  }
+
+  .content {
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 26.754px;
+    text-align: left;
+    margin-left: calc(90px + 26px);
+  }
 }
 
-@media screen and (min-width: 800px) {
+.medium {
+}
+
+.large {
+}
+
+.larger {
 }
 </style>

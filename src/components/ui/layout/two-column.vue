@@ -1,14 +1,18 @@
 <template>
-  <div :class="$style.component">
-    <div :style="{
-        'flex': leftRatio,
-      }">
+  <div :class="[
+      $style.component,
+      {
+        [$style.smaller]: isSmaller,
+        [$style.small]: isSmall,
+        [$style.medium]: isMedium,
+        [$style.large]: isLarge,
+      },
+    ]">
+    <div :class="$style.left">
       <slot name="left" />
     </div>
 
-    <div :style="{
-        'flex': rightRatio,
-      }">
+    <div :class="$style.right">
       <slot name="right" />
     </div>
   </div>
@@ -16,27 +20,20 @@
 
 <script lang="ts">
 // Packages
+import { mapGetters } from 'vuex';
 import Vue from 'vue';
 
 export default Vue.extend({
   name: 'two-column',
 
-  props: {
-    /**
-     * Ratio left should take of total.
-     */
-    leftRatio: {
-      type: Number,
-      default: 1,
-    },
-
-    /**
-     * Ratio right should take of total.
-     */
-    rightRatio: {
-      type: Number,
-      default: 2,
-    },
+  computed: {
+    ...mapGetters('navigation', [
+      'isSmaller',
+      'isSmall',
+      'isMedium',
+      'isLarge',
+      'isLarger',
+    ]),
   },
 });
 </script>
@@ -48,14 +45,23 @@ export default Vue.extend({
   width: calc(100% - 4rem);
   margin: 0 auto;
   flex-wrap: wrap;
-}
 
-@media screen and (min-width: 400px) {
-  .component {
-    flex-wrap: wrap;
+  &.smaller {
+    width: calc(100% - 70px);
+
+    .left {
+      width: 65.5px;
+    }
+
+    .right {
+      width: calc(100% - 65.5px - 16px);
+    }
   }
 }
 
-@media screen and (min-width: 800px) {
+.left {
+}
+
+.right {
 }
 </style>

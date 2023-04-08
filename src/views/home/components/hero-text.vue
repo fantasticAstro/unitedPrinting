@@ -1,15 +1,17 @@
 <template>
-  <div :class="$style.content">
-    <span
-      v-if="show"
-      v-html="convertedText"
-      :class="{
-        [$style.word]: true,
+  <div :class="[
+      $style.content,
+      {
         [$style.smaller]: isSmaller,
         [$style.small]: isSmall,
         [$style.medium]: isMedium,
         [$style.large]: isLarge,
-      }" />
+      },
+    ]">
+    <span
+      v-if="show"
+      v-html="convertedText"
+      :class="$style.word" />
   </div>
 </template>
 
@@ -106,6 +108,7 @@ export default Vue.extend({
   display: block;
   transition: color 1s ease;
   animation: slide-in .4s ease-in-out;
+  max-width: 750px;
 
   &.accent {
     color: #FEE037;
@@ -114,23 +117,32 @@ export default Vue.extend({
   &:not(:last-child) {
     margin-right: 1rem;
   }
+}
 
-  &.large {
+.large {
+  .word {
     font-size: 78px;
     line-height: 88px;
+    font-weight: bolder;
   }
+}
 
-  &.medium {
+.medium {
+  .word {
     font-size: 60px;
     line-height: 70px;
   }
+}
 
-  &.small {
+.small {
+  .word {
     font-size: 50px;
     line-height: 60px;
   }
+}
 
-  &.smaller {
+.smaller {
+  .word {
     font-size: 32px;
     line-height: 36px;
   }

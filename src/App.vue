@@ -8,8 +8,13 @@
       <router-view/>
 
       <navigation-menu
-        v-if="isLarge || isLarger"
-        :class="$style.navigation" />
+        v-if="(isLarger || isLarge) && getPage === 'home'"
+        :class="[
+          $style.navigation,
+          {
+            [$style.center]: getPage === 'home',
+          },
+        ]" />
     </v-main>
   </v-app>
 </template>
@@ -38,6 +43,7 @@ export default Vue.extend({
     ...mapGetters('navigation', [
       'isLarge',
       'isLarger',
+      'getPage',
     ]),
   },
 
@@ -61,7 +67,11 @@ export default Vue.extend({
 .navigation {
   position: absolute;
   right: 0;
-  top: calc(45vh - 116px);
-  z-index: 2;
+  top: calc(20vh - 116px);
+  z-index: 0;
+
+  &.center {
+    top: calc(45vh - 116px);
+  }
 }
 </style>

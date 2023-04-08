@@ -1,5 +1,13 @@
 <template>
-  <div :class="$style.component">
+  <div :class="[
+      $style.component,
+      {
+        [$style.smaller]: isSmaller,
+        [$style.small]: isSmall,
+        [$style.medium]: isMedium,
+        [$style.large]: isLarge,
+      },
+    ]">
     <div :class="[$style.ring, $style.top]" />
 
     <div :class="$style.ring" />
@@ -10,6 +18,7 @@
 
 <script lang="ts">
 // Packages
+import { mapGetters } from 'vuex';
 import Vue from 'vue';
 
 /**
@@ -17,6 +26,16 @@ import Vue from 'vue';
  */
 export default Vue.extend({
   name: 'home-rings',
+
+  computed: {
+    ...mapGetters('navigation', [
+      'isSmaller',
+      'isSmall',
+      'isMedium',
+      'isLarge',
+      'isLarger',
+    ]),
+  },
 });
 </script>
 
@@ -33,7 +52,7 @@ export default Vue.extend({
   width: 146px;
   height: 146px;
   border-radius: 50%;
-  border: 4px solid #FEE137;
+  border: 5.4px solid #FEE137;
 
   &.top {
     transform: translateY(16px);
@@ -41,6 +60,22 @@ export default Vue.extend({
 
   &.bottom {
     transform: translateY(-16px);
+  }
+}
+
+.large {
+  .ring {
+    width: 112px;
+    height: 112px;
+    border: 4.14px solid #FEE137;
+
+    &.top {
+      transform: translateY(12.26px);
+    }
+
+    &.bottom {
+      transform: translateY(-12.26px);
+    }
   }
 }
 </style>

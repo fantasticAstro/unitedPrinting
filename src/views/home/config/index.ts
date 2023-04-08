@@ -101,11 +101,11 @@ export const PRESETS: Preset[] = [
         text: 'of',
       },
       {
-        accent: false,
+        accent: true,
         text: 'productive',
       },
       {
-        accent: true,
+        accent: false,
         text: 'relationships',
       },
     ],
@@ -117,11 +117,11 @@ export const PRESETS: Preset[] = [
   {
     title: [
       {
-        accent: true,
+        accent: false,
         text: 'Veteran',
       },
       {
-        accent: false,
+        accent: true,
         text: 'owned',
       },
       {

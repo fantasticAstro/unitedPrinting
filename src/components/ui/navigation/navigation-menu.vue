@@ -1,5 +1,6 @@
 <template>
-  <div :class="$style.component">
+  <div
+    :class="$style.component">
     <div :class="$style.content">
       <NavigationMenuItem
         v-for="(page, index) in pages"
