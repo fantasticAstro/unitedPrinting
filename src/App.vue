@@ -68,7 +68,7 @@ export default Vue.extend({
   position: absolute;
   right: 0;
   top: calc(20vh - 116px);
-  z-index: 0;
+  z-index: 2;
 
   &.center {
     top: calc(45vh - 116px);

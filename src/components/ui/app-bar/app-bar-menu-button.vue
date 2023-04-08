@@ -60,7 +60,7 @@
           }"
           @keydown="goToContact"
           @click="handleClick('contact')">
-          Contact
+          Contact Us
         </span>
       </div>
     </div>
@@ -177,8 +177,8 @@ export default Vue.extend({
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.475);
-  z-index: 0;
+  background: rgba(0, 0, 0, 0.755);
+  z-index: 3;
   animation: fade-in .4s ease-in-out 0s;
 }
 
