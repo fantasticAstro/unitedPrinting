@@ -1,5 +1,13 @@
 <template>
-  <div :class="$style.component">
+  <div :class="[
+      $style.component,
+      {
+        [$style.smaller]: isSmaller,
+        [$style.small]: isSmall,
+        [$style.medium]: isMedium,
+        [$style.large]: isLarge,
+      },
+    ]">
     <v-btn
       :class="$style.button"
       :color="buttonColor"
@@ -100,7 +108,7 @@ export default Vue.extend({
      */
     buttonColor(): string {
       if (this.appBarShouldBeDark) {
-        return '#FEE037';
+        return '#000000';
       }
       return '#FFFFFF';
     },
@@ -177,7 +185,7 @@ export default Vue.extend({
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.755);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 3;
   animation: fade-in .4s ease-in-out 0s;
 }
@@ -206,6 +214,19 @@ export default Vue.extend({
     &.active {
       color: #FEE037;
     }
+  }
+}
+
+.smaller {
+  .menu {
+    span {
+      font-size: 40px;
+      line-height: 42px;
+    }
+  }
+
+  .filter {
+    padding: 40px;
   }
 }
 

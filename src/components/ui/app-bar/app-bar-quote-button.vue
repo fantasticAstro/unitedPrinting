@@ -38,7 +38,7 @@ export default Vue.extend({
      */
     buttonColor(): string {
       if (this.appBarShouldBeDark) {
-        return '#FEE037';
+        return '#000000';
       }
       return '#FFFFFF';
     },

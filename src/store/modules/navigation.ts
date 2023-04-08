@@ -134,7 +134,7 @@ const getters: GetterTree<NavigationState, any> = {
    * @returns {boolean} Whether app-bar should be dark.
    */
   appBarShouldBeDark(state: NavigationState): boolean {
-    return state.currentPage === PAGES_ENUM.QUOTE;
+    return false;
   },
 
   /**
