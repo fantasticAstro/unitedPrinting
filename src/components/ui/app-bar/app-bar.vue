@@ -136,6 +136,10 @@ $title-line-height: 28px;
       line-height: $title-line-height * 0.6;
       font-weight: bold;
     }
+
+    &:last-of-type {
+      margin-right: $title-font-size * .1;
+    }
   }
 }
 

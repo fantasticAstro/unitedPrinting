@@ -133,7 +133,7 @@ export const PRESETS: Preset[] = [
         text: 'operated',
       },
     ],
-    background: 'american-flag',
+    background: 'military-0',
     rings: false,
     veteran: true,
     supplementaryText: 'Responsible businesses consider the long term effects of their decisions on the greater public. By making environmental consciousness fundamental to our production, we work to ensure that future generations will enjoy a healthy, biodiverse planet. Read more...',

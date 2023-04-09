@@ -105,14 +105,14 @@
         :class="$style['dots-corner-bottom-right']"
         :height="2"
         :width="11"
-        :fillRatio=".6" />
+        :fillRatio=".45" />
 
       <dots
         v-if="!(isSmaller || isSmall || isMedium)"
         :class="$style['dots-corner-bottom-left']"
         :height="4"
         :width="4"
-        :fillRatio=".6" />
+        :fillRatio=".45" />
 
       <span
         v-if="isSmaller || isSmall"

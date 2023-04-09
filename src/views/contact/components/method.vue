@@ -82,7 +82,7 @@ export default Vue.extend({
 
 .information {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
 
   p {
     margin: 0;
