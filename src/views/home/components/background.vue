@@ -6,6 +6,7 @@
       :class="[
         $style.background,
         {
+          [$style.first]: first,
           [$style.active]: index === active,
           [$style.last]: index === active - 1 || (active === 0 && index === images.length - 1),
         },
@@ -41,6 +42,8 @@ export default Vue.extend({
 
   data: () => ({
     images: [] as string[],
+
+    first: true,
   }),
 
   created() {
@@ -63,6 +66,12 @@ export default Vue.extend({
       // return images(`./${name}.png`);
 
       return `url(./img/${name}.png)`;
+    },
+  },
+
+  watch: {
+    active() {
+      this.first = false;
     },
   },
 });
@@ -101,7 +110,10 @@ export default Vue.extend({
   &.active {
     opacity: 1;
     z-index: -1;
-    animation: fade-in 1s ease-in-out;
+
+    &:not(.first) {
+      animation: fade-in 1s ease-in-out;
+    }
   }
 
   &.last {

@@ -109,7 +109,7 @@ const getters: GetterTree<NavigationState, any> = {
     ].includes(state.currentPage)) {
       return state.currentPage;
     } if (state.currentPage === PAGES_ENUM.QUOTE) {
-      return PAGES_ENUM.CONTACT;
+      return PAGES_ENUM.QUOTE;
     }
     return PAGES_ENUM.HOME;
   },
