@@ -1,5 +1,13 @@
 <template>
-  <div :class="$style.component">
+  <div :class="[
+      $style.component,
+      {
+        [$style.smaller]: isSmaller,
+        [$style.small]: isSmall,
+        [$style.medium]: isMedium,
+        [$style.large]: isLarge,
+      },
+    ]">
     <span :class="$style.type">
       {{ type }}
     </span>
@@ -12,6 +20,7 @@
 
 <script lang="ts">
 // Packages
+import { mapGetters } from 'vuex';
 import Vue from 'vue';
 
 /**
@@ -26,6 +35,17 @@ export default Vue.extend({
       default: 'Some Method',
     },
   },
+
+  computed: {
+    ...mapGetters('navigation', [
+      'appBarShouldBeDark',
+      'isSmaller',
+      'isSmall',
+      'isMedium',
+      'isLarge',
+      'isLarger',
+    ]),
+  },
 });
 </script>
 
@@ -37,6 +57,18 @@ export default Vue.extend({
   span {
     display: block;
     width: 100%;
+  }
+}
+
+.small,
+.smaller,
+.medium {
+  &.component {
+    margin-bottom: 36px;
+  }
+
+  .type {
+    margin-bottom: 15px;
   }
 }
 
