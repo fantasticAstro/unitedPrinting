@@ -87,7 +87,7 @@
       </span>
 
       <dots
-        v-if="!(isSmaller || isSmall || isLarge)"
+        v-if="!(isSmaller || isSmall || isLarge || isMedium)"
         :class="$style['dots-corner-top-right']"
         :height="3"
         :width="6"
@@ -101,14 +101,14 @@
         :fillRatio=".6" />
 
       <dots
-        v-if="!(isSmaller || isSmall)"
+        v-if="!(isSmaller || isSmall || isMedium)"
         :class="$style['dots-corner-bottom-right']"
         :height="2"
         :width="11"
         :fillRatio=".6" />
 
       <dots
-        v-if="!(isSmaller || isSmall)"
+        v-if="!(isSmaller || isSmall || isMedium)"
         :class="$style['dots-corner-bottom-left']"
         :height="4"
         :width="4"
@@ -250,6 +250,7 @@ export default Vue.extend({
   grid-row-start: 4;
   grid-row-end: 5;
   display: flex;
+  justify-content: center;
 }
 
 .hero-text-wrapper {
@@ -359,7 +360,38 @@ export default Vue.extend({
 }
 
 .medium {
+  .content {
+    grid-template-columns: 40px 15px 90px auto 90px 15px 40px;
+  }
 
+  .center {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+
+  .features {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+
+  .dots-corner-bottom-left {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+
+  .dots-corner-bottom-right {
+    margin-left: auto;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
 }
 
 .large {

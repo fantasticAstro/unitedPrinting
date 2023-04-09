@@ -32,22 +32,28 @@ export default Vue.extend({
 <style lang="scss" module>
 .component {
   margin-bottom: 50px;
+  max-width: 175px;
 
   span {
     display: block;
+    width: 100%;
   }
 }
 
 .type {
-  font-size: 23px;
-  line-height: 28px;
-  margin-bottom: 28px;
+  font-size: 16px;
+  margin-bottom: 20px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: .05em;
 }
 
 .information {
-  font-size: 23px;
-  line-height: 28px;
+  font-size: 15px;
+  font-weight: 600;
+
+  p {
+    margin: 0;
+  }
 }
 </style>

@@ -189,14 +189,19 @@ $title-line-height: 28px;
   .title-wrapper {
     span {
       // Design specified 24px and 29px, relying on ratios instead.
-      font-size: $title-font-size * 0.9 * 0.86;
-      line-height: $title-line-height * 0.9 * 0.9;
+      font-size: $title-font-size * 0.7 * 0.86;
+      line-height: $title-line-height * 0.7 * 0.9;
 
       &.bold {
-        font-size: $title-font-size * 0.9;
-        line-height: $title-line-height * 0.9;
+        font-size: $title-font-size * 0.7;
+        line-height: $title-line-height * 0.7;
       }
     }
+  }
+
+  .location {
+    font-size: calc(22px * .7);
+    font-weight: 500;
   }
 }
 

@@ -1,6 +1,11 @@
 <template>
   <div
-    :class="$style.component"
+    :class="[
+      $style.component,
+      {
+        [$style.dark]: dark
+      },
+    ]"
     :style="{
       'width': `${fullWidth}px`,
       'height': `${fullHeight}px`,
@@ -51,6 +56,11 @@ export default Vue.extend({
     width: {
       type: Number,
       default: 0,
+    },
+
+    dark: {
+      type: Boolean,
+      default: false,
     },
 
     /**
@@ -150,12 +160,37 @@ export default Vue.extend({
   }
 }
 
+.dark {
+  .orb {
+    &.white {
+      border: 1px solid black;
+    }
+
+    &.accent {
+      animation: dark-glow 5s ease-in-out calc(var(--animation-delay) * -1s) infinite;
+      border: 1px solid #FEE137;
+    }
+  }
+}
+
 @keyframes glow {
   0% {
     border: 1px solid #FEE137;
   }
   50% {
     border: 1px solid white;
+  }
+  100% {
+    border: 1px solid #FEE137;
+  }
+}
+
+@keyframes dark-glow {
+  0% {
+    border: 1px solid #FEE137;
+  }
+  50% {
+    border: 1px solid rgb(0, 0, 0);
   }
   100% {
     border: 1px solid #FEE137;

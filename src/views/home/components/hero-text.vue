@@ -121,16 +121,16 @@ export default Vue.extend({
 
 .large {
   .word {
-    font-size: 78px;
-    line-height: 88px;
+    font-size: 95px;
+    line-height: 100px;
     font-weight: bolder;
   }
 }
 
 .medium {
   .word {
-    font-size: 60px;
-    line-height: 70px;
+    font-size: 70px;
+    line-height: 78px;
   }
 }
 

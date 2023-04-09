@@ -134,7 +134,7 @@ const getters: GetterTree<NavigationState, any> = {
    * @returns {boolean} Whether app-bar should be dark.
    */
   appBarShouldBeDark(state: NavigationState): boolean {
-    return false;
+    return state.currentPage === PAGES_ENUM.CONTACT;
   },
 
   /**
@@ -164,7 +164,7 @@ const getters: GetterTree<NavigationState, any> = {
    * @returns {number} Whether the width of the viewport is small.
    */
   isSmall(state: NavigationState): boolean {
-    return state.width < 720;
+    return state.width < 720 && state.width >= 600;
   },
 
   /**

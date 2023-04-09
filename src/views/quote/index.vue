@@ -228,6 +228,7 @@ export default Vue.extend({
   grid-template-columns: 40px 16px auto 16px 40px;
   grid-template-rows: 117px 60px auto;
   width: 100vw;
+  min-height: 100vh;
   background: #EC6357;
   padding-bottom: 40px;
 }
