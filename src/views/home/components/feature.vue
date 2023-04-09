@@ -35,10 +35,10 @@ export default Vue.extend({
     line-height: 26px;
     color: white;
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.099);
-    font-weight: 500;
+    font-weight: 300;
 
     &:first-of-type {
-      font-weight: 300;
+      font-weight: 500;
     }
   }
 }

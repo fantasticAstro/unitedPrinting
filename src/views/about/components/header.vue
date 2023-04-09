@@ -16,13 +16,6 @@
     <span :class="[$style.title]">
       On this journey together since 1996.
     </span>
-
-    <span
-      v-if="!(isSmall || isSmaller)"
-      :class="[
-        $style.box,
-        $style.right,
-      ]" />
   </div>
 </template>
 

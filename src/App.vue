@@ -6,15 +6,6 @@
 
     <v-main :class="$style.main">
       <router-view/>
-
-      <navigation-menu
-        v-if="(isLarger || isLarge) && getPage === 'home'"
-        :class="[
-          $style.navigation,
-          {
-            [$style.center]: getPage === 'home',
-          },
-        ]" />
     </v-main>
   </v-app>
 </template>
@@ -29,14 +20,12 @@ import Vue from 'vue';
 
 // Local Imports
 import AppBar from './components/ui/app-bar/app-bar.vue';
-import NavigationMenu from './components/ui/navigation/navigation-menu.vue';
 
 export default Vue.extend({
   name: 'App',
 
   components: {
     AppBar,
-    NavigationMenu,
   },
 
   computed: {

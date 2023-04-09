@@ -184,7 +184,7 @@ export default Vue.extend({
   grid-column-end: 2;
   border-radius: 13px;
   width: 100%;
-  height: calc((100vw - 240px - 120px) / 2 / 1.4);
+  height: calc((100vw - 240px - 120px) / 2 / 1.6);
   max-height: 360px;
   background-size: cover;
 
@@ -259,6 +259,6 @@ export default Vue.extend({
 }
 
 .quote {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 </style>

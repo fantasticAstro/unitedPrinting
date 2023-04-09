@@ -1,14 +1,12 @@
 <template>
   <div
-    :class="[
-      $style.component,
-      {
-        [$style.smaller]: isSmaller,
-        [$style.small]: isSmall,
-        [$style.medium]: isMedium,
-        [$style.large]: isLarge,
-      },
-    ]"
+    :class="{
+      [$style.component]: true,
+      [$style.smaller]: isSmaller,
+      [$style.small]: isSmall,
+      [$style.medium]: isMedium,
+      [$style.large]: isLarge,
+    }"
     :style="{
       'background-image': `url('${src}')`,
     }">
@@ -50,8 +48,11 @@ export default Vue.extend({
   width: 100vw;
   height: 800px;
   background-size: cover;
+  background-position: center center;
 
-  &.small {
+  &.small,
+  &.smaller,
+  &.medium {
     height: 450px;
   }
 

@@ -76,6 +76,7 @@
                 color="#FFFFFF"
                 dark
                 label="Colors (front)"
+                hide-details
                 style="margin-bottom: 7px"
                 dense />
 
@@ -100,17 +101,27 @@
                 color="#FFFFFF"
                 dark
                 label="Shipping"
-                style="margin-bottom: 7px"
+                hide-details
                 dense />
 
               <v-btn
+                v-if="isSmaller || isSmall"
                 dark
-                outlined>
+                outlined
+                style="margin-top: 40px">
                 Send
               </v-btn>
             </div>
 
             <div :class="[$style.column, $style.contact]">
+              <dots
+                v-if="!(isSmaller || isSmall)"
+                :height="4"
+                :width="4"
+                :fillRatio="1"
+                :coloredRatio="0"
+                style="margin-bottom: 40px" />
+
               <div :class="$style['contact-wrapper']">
                 <p :class="$style['contact-details']">
                   Have a question? No worries—we've got this!
@@ -121,6 +132,22 @@
                 </p>
               </div>
             </div>
+          </div>
+
+          <div
+            :class="$style.form"
+            style="margin-top: 20px">
+            <div :class="$style.column" />
+
+            <div :class="$style.column">
+              <v-btn
+                dark
+                outlined>
+                Send
+              </v-btn>
+            </div>
+
+            <div :class="$style.column" />
           </div>
         </div>
       </div>
@@ -156,8 +183,15 @@ import {
 } from 'vuex';
 import Vue from 'vue';
 
+// Local Imports
+import Dots from '../home/components/dots.vue';
+
 export default Vue.extend({
   name: 'quote-view',
+
+  components: {
+    Dots,
+  },
 
   data: () => ({
     name: '',
@@ -229,7 +263,7 @@ export default Vue.extend({
   grid-template-rows: 117px 60px auto;
   width: 100vw;
   min-height: 100vh;
-  background: #EC6357;
+  background: #19b4b0;
   padding-bottom: 40px;
 }
 
@@ -249,7 +283,9 @@ export default Vue.extend({
   background-size: cover;
   border-radius: 12px;
   padding: 80px;
-  background-image: linear-gradient(#e95649ea,#e95649EA), url('../../../public/img/texture.jpg');
+  background-image: linear-gradient(#00000022,#5a5a5a00),
+    linear-gradient(#19b4b0ea,#19b4b0ea),
+    url('../../../public/img/texture.jpg');
 }
 
 .form-wrapper {
@@ -296,7 +332,7 @@ export default Vue.extend({
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .contact-wrapper {

@@ -10,11 +10,11 @@
     ]">
     <div :class="$style.hero">
       <p :class="$style.first">
-        Award-winning.
+        <i>Award</i>-winning.
       </p>
 
       <p :class="$style.second">
-        Sustainable.
+        Sustain<i>able.</i>
       </p>
 
       <p :class="$style.third">
@@ -72,7 +72,8 @@ export default Vue.extend({
   width: 100vw;
   height: 520px;
   background-size: cover !important;
-  background: url('../../../../public/img/blob-background.jpg');
+  background-position: 0% 100% !important;
+  background: url('../../../../public/img/blob-background.png');
 }
 
 .hero {

@@ -8,13 +8,6 @@
         [$style.large]: isLarge,
       },
     ]">
-    <v-icon
-      :class="$style.icon"
-      color="black"
-      @click="scrollToFirst">
-      mdi-chevron-left
-    </v-icon>
-
     <div :class="[
         $style.content,
         'navigational-horizontal-menu',
@@ -31,6 +24,13 @@
         {{  feature.label }}
       </p>
     </div>
+
+    <v-icon
+      :class="$style.icon"
+      color="black"
+      @click="scrollToFirst">
+      mdi-chevron-left
+    </v-icon>
 
     <v-icon
       :class="$style.icon"

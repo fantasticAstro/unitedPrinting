@@ -71,7 +71,7 @@ export const FEATURES: Feature[] = [
       'Window Graphics ',
       'Wall Graphics',
     ],
-    image: 'wide-format',
+    image: 'wide-format2',
   },
   {
     title: 'Graphic Design',

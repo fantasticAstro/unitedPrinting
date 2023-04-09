@@ -22,41 +22,41 @@ export const PRESET_TIMING = 5000;
 export const SUBTEXTS: PresetText[][] = [
   [
     {
-      accent: true,
+      accent: false,
       text: 'Serving',
     },
     {
-      accent: true,
+      accent: false,
       text: 'clients',
     },
     {
-      accent: false,
+      accent: true,
       text: 'across',
     },
     {
-      accent: false,
+      accent: true,
       text: 'the',
     },
     {
-      accent: false,
+      accent: true,
       text: 'nation',
     },
   ],
   [
     {
-      accent: true,
+      accent: false,
       text: 'Veteran',
     },
     {
-      accent: true,
+      accent: false,
       text: 'owned',
     },
     {
-      accent: false,
+      accent: true,
       text: 'and',
     },
     {
-      accent: false,
+      accent: true,
       text: 'operated',
     },
   ],

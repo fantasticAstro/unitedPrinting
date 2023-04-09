@@ -154,6 +154,10 @@ export default Vue.extend({
     font-size: 17;
     line-height: 20.339px;
     margin: 0;
+
+    &:last-of-type {
+      margin: 0;
+    }
   }
 }
 
