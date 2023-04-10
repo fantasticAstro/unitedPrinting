@@ -13,6 +13,10 @@
   border-radius: 7.436px;
 }
 
+.v-application--is-ltr .v-text-field .v-label {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
 }

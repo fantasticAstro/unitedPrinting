@@ -50,7 +50,7 @@ export default Vue.extend({
 
 .location {
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 400;
   color: rgb(0, 0, 0);
   z-index: 1;
 }
