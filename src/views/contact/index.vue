@@ -12,7 +12,7 @@
     <div :class="$style.center">
       <div :class="$style['title-wrapper']">
         <h1 :class="$style.first">
-          We would love
+          We would <i>love</i>
         </h1>
 
         <h1 :class="$style.second">
@@ -20,7 +20,7 @@
         </h1>
 
         <h1 :class="$style.third">
-          you.
+          <i>you</i>.
         </h1>
       </div>
 
@@ -52,8 +52,8 @@
       <div :class="$style.column">
         <contact-method type="CONTACT">
           <p>
-            Tel: (704) 525-3710
-            Email: unitedprintingnc@gmail.com
+            Office: (704) 525-3710
+            Email: info@unitedprintingnc.com
           </p>
         </contact-method>
 
@@ -109,7 +109,7 @@
       <p
         @keydown="goToServices"
         @click="goToServices">
-        Check out our services page for more information <v-icon>mdi-chevron-right</v-icon>
+        Check out our Services page for more information <v-icon>mdi-chevron-right</v-icon>
       </p>
     </div>
 
@@ -343,6 +343,7 @@ export default Vue.extend({
   grid-row-start: 4;
   grid-row-end: 5;
   margin-left: auto;
+  z-index: 2;
 
   p {
     color: black;
@@ -429,6 +430,7 @@ export default Vue.extend({
   }
 
   .services-link-2 {
+    z-index: 2;
     margin-left: auto;
 
     p {

@@ -84,7 +84,7 @@ export const PRESETS: Preset[] = [
     background: 'aerial-forest',
     rings: false,
     veteran: false,
-    supplementaryText: 'Community has always been at the heart of our operation. Twenty five years ago when Team United was in its infancy, filling orders out of a small warehouse with a handful of dedicated employees, it was our committment to relationships that set us apart from the competition. Today, partners across the nation expect that same local care and world-class efficiency we first cultivated at home in Charlotte, North Carolina. ',
+    supplementaryText: 'Responsible businesses consider the long term effects of their decisions on the greater public. By making environmental consciousness fundamental to our production, we work to ensure that future generations will enjoy a healthy, biodiverse planet.',
   },
   {
     title: [
@@ -112,7 +112,7 @@ export const PRESETS: Preset[] = [
     background: 'gradient',
     rings: true,
     veteran: false,
-    supplementaryText: 'Responsible businesses consider the long term effects of their decisions on the greater public. By making environmental consciousness fundamental to our production, we work to ensure that future generations will enjoy a healthy, biodiverse planet. Read more...',
+    supplementaryText: 'Community has always been at the heart of our operation. Twenty five years ago when Team United was in its infancy, filling orders out of a small warehouse with a handful of dedicated employees, it was our committment to relationships that set us apart from the competition. Today, partners across the nation expect that same local care and world-class efficiency we first cultivated at home in Charlotte, North Carolina.',
   },
   {
     title: [

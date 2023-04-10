@@ -17,9 +17,7 @@
       }" />
 
     <div :class="$style.content">
-      <div
-        v-if="!(isSmaller || isSmall)"
-        :class="$style.header">
+      <div :class="$style.header">
         <span>
           {{ feature.title }}
         </span>
@@ -214,7 +212,7 @@ export default Vue.extend({
     display: block;
     width: 15px;
     height: 15px;
-    border: 1px solid black;
+    border: 1px solid black !important;
     border-radius: 50%;
 
     &.active {
@@ -239,6 +237,15 @@ export default Vue.extend({
 .smaller {
   &.component {
     grid-template-columns: 80px 20px auto;
+    padding-top: 40px;
+
+    &.first {
+      padding-top: 20px;
+    }
+  }
+
+  .header {
+    margin-bottom: 20px;
   }
 
   .content {
@@ -255,6 +262,10 @@ export default Vue.extend({
   .products {
     grid-column-start: 0;
     grid-column-end: 2;
+  }
+
+  .indicator {
+    border: 2px solid black;
   }
 }
 

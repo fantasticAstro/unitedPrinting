@@ -10,6 +10,10 @@
       @click="goToQuote">
       REQUEST A QUOTE
     </v-btn>
+
+    <span :class="$style.location">
+        Charlotte, NC
+      </span>
   </div>
 </template>
 
@@ -39,8 +43,16 @@ export default Vue.extend({
   background-color: white;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  padding-top: 40px;
+  padding: 25px 0;
+}
+
+.location {
+  font-size: 16px;
+  font-weight: 100;
+  color: rgb(0, 0, 0);
+  z-index: 1;
 }
 
 .button {

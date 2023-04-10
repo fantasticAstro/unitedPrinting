@@ -93,7 +93,7 @@ export default Vue.extend({
 .indicator {
   display: block;
   border-radius: 50%;
-  border: .494px solid black;
+  border: 1px solid black;
   width: 9px;
   height: 9px;
 

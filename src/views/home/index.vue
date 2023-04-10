@@ -20,7 +20,14 @@
           <span
             v-if="isSmaller || isSmall"
             :class="$style['supplementary-text']">
-            {{ supplementaryText }}
+            {{ supplementaryText }} -
+
+            <span
+              :class="$style.bold"
+              @keydown="goToAbout"
+              @click="goToAbout">
+              Read more...
+            </span>
           </span>
 
           <div
@@ -33,7 +40,7 @@
             </v-icon>
 
             <dots
-              :height="4"
+              :height="3"
               :width="4"
               :fillRatio=".6" />
           </div>
@@ -85,6 +92,13 @@
           6
         </span>
       </span>
+
+      <dots
+        v-if="isLarger"
+        :class="$style['dots-corner-right']"
+        :height="8"
+        :width="3"
+        :fillRatio=".6" />
 
       <dots
         v-if="!(isSmaller || isSmall || isLarge || isMedium)"
@@ -194,7 +208,7 @@ export default Vue.extend({
 
     supplementaryText(): string {
       if (this.presets.length) {
-        return this.presets[this.active].supplementaryText;
+        return this.presets[this.active].supplementaryText.slice(0, 200);
       }
       return '';
     },
@@ -217,6 +231,7 @@ export default Vue.extend({
   methods: {
     ...mapActions('navigation', [
       'handlePageLoad',
+      'goToAbout',
     ]),
 
     changePreset() {
@@ -271,6 +286,11 @@ export default Vue.extend({
   line-height: 18px;
   color: white;
   margin: 18px 0;
+
+  .bold {
+    color: #FEE137;
+    cursor: pointer;
+  }
 }
 
 .request-quote-popup {
@@ -355,8 +375,12 @@ export default Vue.extend({
   }
 }
 
-.small {
-
+.dots-corner-right {
+  grid-column-start: 5;
+  grid-column-end: 6;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin-left: auto;
 }
 
 .medium {

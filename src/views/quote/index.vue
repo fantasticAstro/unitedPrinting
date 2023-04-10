@@ -135,6 +135,7 @@
           </div>
 
           <div
+            v-if="!(isSmaller || isSmall)"
             :class="$style.form"
             style="margin-top: 20px">
             <div :class="$style.column" />

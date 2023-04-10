@@ -72,7 +72,7 @@ export default Vue.extend({
   width: 100vw;
   height: 520px;
   background-size: cover !important;
-  background-position: 0% 100% !important;
+  background-position: center center;
   background: url('../../../../public/img/blob-background.png');
 }
 

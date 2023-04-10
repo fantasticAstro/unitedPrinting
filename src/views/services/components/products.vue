@@ -40,6 +40,10 @@
           :key="`services-feature-product-${id}-${index}`">
           {{  product }}
         </p>
+
+        <p :class="$style.bold">
+          + much more!
+        </p>
       </div>
     </div>
   </div>
@@ -156,6 +160,11 @@ export default Vue.extend({
     margin: 0;
 
     &:last-of-type {
+      margin: 0;
+    }
+
+    &.bold {
+      color: #FEE137;
       margin: 0;
     }
   }

@@ -9,7 +9,7 @@ export const FEATURES: Feature[] = [
     label: 'ORIGINS',
     paragraphs: [
       'Community has always been at the heart of our operation.',
-      'Twenty five years ago when Team United was in its infancy, filling orders out of a small warehouse with a handful of dedicated employees, it was our committment to relationships that set us apart from the competition.',
+      'Twenty seven years ago when Team United was in its infancy, filling orders out of a small warehouse with a handful of dedicated employees, it was our committment to relationships that set us apart from the competition.',
       'Today, partners across the nation expect that same local care and world-class efficiency we first cultivated at home in Charlotte, North Carolina.',
     ],
     highlight: null,

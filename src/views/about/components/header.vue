@@ -6,6 +6,7 @@
         [$style.small]: isSmall,
         [$style.medium]: isMedium,
         [$style.large]: isLarge,
+        [$style.larger]: isLarger,
       },
     ]">
     <span :class="[
@@ -14,7 +15,13 @@
     ]" />
 
     <span :class="[$style.title]">
-      On this journey together since 1996.
+      <p>
+        On this journey
+      </p>
+
+      <p>
+        together since 1996.
+      </p>
     </span>
   </div>
 </template>
@@ -47,6 +54,19 @@ export default Vue.extend({
   grid-template-rows: auto;
   margin: 40px 0;
   position: relative;
+
+  &.larger {
+    grid-template-columns: auto 170px 14px 529px auto;
+
+    .title {
+      grid-column-start: 4;
+      grid-column-end: 6;
+    }
+
+    .box {
+      right: 20vw;
+    }
+  }
 }
 
 .title {
@@ -58,14 +78,17 @@ export default Vue.extend({
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
-  margin: 0 auto;
-  text-align: center;
+  text-align: left;
+
+  p {
+    margin: 0;
+  }
 }
 
 .box {
   position: absolute;
   display: block;
-  width: 400px;
+  width: 100vw;
   height: 40px;
   border: 6px solid #FEE037;
   grid-row-start: 1;
@@ -111,6 +134,20 @@ export default Vue.extend({
   .title {
     font-size: 25px;
     line-height: 26.754px;
+    grid-column-start: 4;
+    grid-column-end: 6;
+  }
+
+  .box.left {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    right: 15px;
+  }
+
+  &.component {
+    margin: 0 auto;
+    margin-top: 36px;
+    grid-template-columns: 36px 66px 16px auto 36px;
   }
 }
 
@@ -123,7 +160,12 @@ export default Vue.extend({
 
 .medium,
 .large {
-  grid-template-columns: 200px 12px auto 12px 200px;
+  grid-template-columns: auto 100px 713px 100px auto;
+}
+
+.medium,
+.large {
+  grid-template-columns: auto 60px 750px 60px auto;
 }
 
 .smaller,

@@ -232,5 +232,9 @@ export default Vue.extend({
 }
 
 .medium {
+  &.component {
+    max-width: calc(100vw - 20px);
+    padding: 0 10px;
+  }
 }
 </style>
