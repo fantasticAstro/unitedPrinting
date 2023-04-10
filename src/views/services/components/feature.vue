@@ -39,7 +39,8 @@
 
       <p
         v-for="(paragraph, placement) in feature.paragraphs"
-        :key="`services-${id}-paragraph-${placement}`">
+        :key="`services-${id}-paragraph-${placement}`"
+        :class="$style.paragraph">
         {{ paragraph }}
       </p>
 
@@ -165,7 +166,7 @@ export default Vue.extend({
   grid-column-start: 3;
   grid-column-end: 4;
 
-  p {
+  .paragraph {
     font-size: 17px;
     line-height: 21px;
     font-weight: 500;
