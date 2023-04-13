@@ -4,4 +4,11 @@ module.exports = defineConfig({
   transpileDependencies: [
     'vuetify',
   ],
+  devServer: {
+    proxy: {
+      '^/api': {
+        target: 'https://united-printing-backend.vercel.app/api',
+      },
+    }
+  },
 });

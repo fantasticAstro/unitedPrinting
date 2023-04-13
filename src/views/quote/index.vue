@@ -73,6 +73,7 @@
             <div :class="[$style.column, $style.second]">
               <v-select
                 v-model="colorsFront"
+                :items="colorOptions"
                 color="#FFFFFF"
                 dark
                 label="Colors (front)"
@@ -82,6 +83,7 @@
 
               <v-select
                 v-model="colorsBack"
+                :items="colorOptions"
                 color="#FFFFFF"
                 dark
                 label="Colors (back)"
@@ -90,6 +92,7 @@
 
               <v-select
                 v-model="proofType"
+                :items="proofTypeOptions"
                 color="#FFFFFF"
                 dark
                 label="Proof type"
@@ -98,6 +101,7 @@
 
               <v-select
                 v-model="shipping"
+                :items="shippingOptions"
                 color="#FFFFFF"
                 dark
                 label="Shipping"
@@ -142,9 +146,12 @@
 
             <div :class="$style.column">
               <v-btn
+                :loading="processing"
                 dark
-                outlined>
-                Send
+                outlined
+                @keydown="submitForm"
+                @click="submitForm">
+                {{ status }}
               </v-btn>
             </div>
 
@@ -185,6 +192,7 @@ import {
 import Vue from 'vue';
 
 // Local Imports
+import api from '../../api';
 import Dots from '../home/components/dots.vue';
 
 export default Vue.extend({
@@ -211,9 +219,37 @@ export default Vue.extend({
 
     colorsBack: '',
 
+    colorOptions: [
+      '1 PMS Color',
+      '2 PMS Color',
+      '3 PMS Color',
+      '4 PMS Color',
+      '4 Color Process',
+    ],
+
     proofType: '',
 
+    proofTypeOptions: [
+      'Epson Color Proof',
+      'PDF',
+      'Fax Laser',
+    ],
+
     shipping: '',
+
+    shippingOptions: [
+      'Call When Ready',
+      'Local Delivery',
+      'Ground',
+      '2nd Day Air',
+      'Next Day Air',
+    ],
+
+    attempted: false,
+
+    processing: false,
+
+    sent: false,
   }),
 
   created() {
@@ -239,6 +275,15 @@ export default Vue.extend({
         && this.email
         && this.description);
     },
+
+    status(): string {
+      if (!this.attempted && !this.sent) {
+        return 'Send';
+      } if (this.attempted && !this.sent) {
+        return 'Failed to Send';
+      }
+      return 'Sent Successfully';
+    },
   },
 
   methods: {
@@ -246,13 +291,30 @@ export default Vue.extend({
       'handlePageLoad',
     ]),
 
-    // /**
-    //  * Submits the form if valid.
-    //  *
-    //  * @returns {void}
-    //  */
-    // submitForm(): void {
-    // },
+    /**
+     * Submits the form if valid.
+     *
+     * @returns {void}
+     */
+    async submitForm(): Promise<void> {
+      this.processing = true;
+      this.attempted = true;
+
+      this.sent = await api.requestQuote(
+        this.name,
+        this.email,
+        this.phone,
+        this.companyName,
+        this.description,
+        this.stock,
+        this.colorsFront,
+        this.colorsBack,
+        this.proofType,
+        this.shipping,
+      );
+
+      this.processing = false;
+    },
   },
 });
 </script>
