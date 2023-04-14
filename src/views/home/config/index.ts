@@ -14,7 +14,7 @@ export interface Preset {
 /**
  * Time between preset changes.
  */
-export const PRESET_TIMING = 5000;
+export const PRESET_TIMING = 7000;
 
 /**
  * Subtext items.
