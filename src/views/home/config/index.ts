@@ -136,7 +136,7 @@ export const PRESETS: Preset[] = [
     background: 'gradient',
     rings: true,
     veteran: false,
-    supplementaryText: 'Community has always been at the heart of our operation. Twenty five years ago when Team United was in its infancy, filling orders out of a small warehouse with a handful of dedicated employees, it was our committment to relationships that set us apart from the competition. Today, partners across the nation expect that same local care and world-class efficiency we first cultivated at home in Charlotte, North Carolina.',
+    supplementaryText: 'Community has always been at the heart of our operation. Twenty seven years ago when Team United was in its infancy, filling orders out of a small warehouse with a handful of dedicated employees, it was our committment to relationships that set us apart from the competition. Today, partners across the nation expect that same local care and world-class efficiency we first cultivated at home in Charlotte, North Carolina.',
   },
   {
     title: [
@@ -157,7 +157,7 @@ export const PRESETS: Preset[] = [
         text: 'operated',
       },
     ],
-    background: 'american-flag2',
+    background: 'veteran',
     rings: false,
     veteran: true,
     supplementaryText: 'Good leaders diligently model the behaviors they expect and inspire other team members to do the same. Facilitating and encouraging integrity, self-confidencea and teamwork are top priorities. By maintaining a thriving, cohesive unit within the workplace, Team United’s veteran leadership ultimately serves to amplify the experience and success of our clients.',
