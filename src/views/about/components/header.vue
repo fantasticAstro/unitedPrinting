@@ -79,6 +79,7 @@ export default Vue.extend({
   grid-row-start: 1;
   grid-row-end: 2;
   text-align: left;
+  animation: slide-in 0.5s ease-in-out 0s;
 
   p {
     margin: 0;
@@ -95,6 +96,7 @@ export default Vue.extend({
   grid-row-end: 2;
   border-radius: 10px;
   top: calc((100% - 40px) / 2);
+  animation: slide-in 0.5s ease-in-out 0s;
 
   &.left {
     right: 0;
@@ -174,6 +176,15 @@ export default Vue.extend({
 .large {
   .box {
     top: 0;
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 </style>

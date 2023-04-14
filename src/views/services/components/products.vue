@@ -114,7 +114,7 @@ export default Vue.extend({
   top: 0;
   display: block;
   background: black;
-  width: 1.3px;
+  width: 1.625px;
   height: 0;
   transition: height .3s ease-in-out;
 }
@@ -157,7 +157,8 @@ export default Vue.extend({
   p {
     font-size: 17;
     line-height: 20.339px;
-    margin: 0;
+    margin: 2px 0;
+    font-weight: 500;
 
     &:last-of-type {
       margin: 0;

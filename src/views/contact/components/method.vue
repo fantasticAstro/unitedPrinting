@@ -52,7 +52,6 @@ export default Vue.extend({
 <style lang="scss" module>
 .component {
   margin-bottom: 50px;
-  max-width: 175px;
 
   span {
     display: block;

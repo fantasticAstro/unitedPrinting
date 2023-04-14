@@ -97,15 +97,18 @@ export default Vue.extend({
 
     &.first {
       align-self: flex-start;
+      animation: slide-right 0.4s ease-in-out 0s;
     }
 
     &.second {
       align-self: flex-end;
+      animation: slide-left 0.4s ease-in-out 0.2s, hide 0.2s linear 0s;
     }
 
     &.third {
       align-self: center;
       color: #FEE137;
+      animation: slide-right 0.4s ease-in-out 0.4s, hide 0.4s linear 0s;
     }
   }
 }
@@ -166,6 +169,37 @@ export default Vue.extend({
   &.component {
     height: 360px;
     grid-template-rows: 83px auto;
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 </style>

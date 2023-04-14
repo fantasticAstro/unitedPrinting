@@ -13,6 +13,8 @@
       :highlight="feature.highlight"
       :index="index"
       :total="features.length" />
+
+    <about-logo />
   </div>
 </template>
 
@@ -32,6 +34,7 @@ import {
 import FullWidthImage from '../../components/ui/images/full-width-image.vue';
 import PageHeader from './components/header.vue';
 import AboutFeature from './components/feature.vue';
+import AboutLogo from './components/logo.vue';
 
 export default Vue.extend({
   name: 'about-view',
@@ -40,6 +43,7 @@ export default Vue.extend({
     FullWidthImage,
     PageHeader,
     AboutFeature,
+    AboutLogo,
   },
 
   data: () => ({

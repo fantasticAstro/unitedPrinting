@@ -46,9 +46,9 @@ export default Vue.extend({
 <style lang="scss" module>
 .component {
   width: 100vw;
-  height: 800px;
+  height: 720px;
   background-size: cover;
-  background-position: center center;
+  background-position: top center;
 
   &.small,
   &.smaller,

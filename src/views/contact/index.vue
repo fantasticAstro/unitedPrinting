@@ -27,11 +27,11 @@
       <div :class="$style.column">
         <contact-method type="COMPANY ADDRESS">
           <p>
-            8200-A Arrowridge Blvd,
+            8200-A Arrowridge
           </p>
 
           <p>
-            Charlotte NC
+            Blvd, Charlotte NC
           </p>
 
           <p>
@@ -44,7 +44,14 @@
             style="cursor:pointer"
             @keydown="goToLinkedIn"
             @click="goToLinkedIn">
-            linkedin.com/unitedprintingnc
+            linkedin.com/
+          </p>
+
+          <p
+            style="cursor:pointer"
+            @keydown="goToLinkedIn"
+            @click="goToLinkedIn">
+            unitedprintingnc
           </p>
         </contact-method>
       </div>
@@ -53,7 +60,14 @@
         <contact-method type="CONTACT">
           <p>
             Office: (704) 525-3710
-            Email: info@unitedprintingnc.com
+          </p>
+
+          <p>
+            Email: unitedprintingnc@
+          </p>
+
+          <p>
+            gmail.com
           </p>
         </contact-method>
 
@@ -246,7 +260,7 @@ export default Vue.extend({
 
 .center {
   display: grid;
-  grid-template-columns: 2.3fr 40px 1fr 40px 1fr;
+  grid-template-columns: 2.1fr 40px 1fr 40px 1fr;
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 2;
@@ -259,7 +273,7 @@ export default Vue.extend({
 .larger,
 .large {
   .center {
-    grid-template-columns: 2.3fr 80px 1fr 40px 1fr;
+    grid-template-columns: 2.1fr 80px 1fr 40px 1fr;
   }
 
   .column {

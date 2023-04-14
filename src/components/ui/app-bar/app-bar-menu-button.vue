@@ -201,7 +201,7 @@ export default Vue.extend({
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   z-index: 3;
   animation: fade-in .4s ease-in-out 0s;
 }
@@ -224,7 +224,6 @@ export default Vue.extend({
     animation: slide-in .3s ease-in-out calc(var(--index) * .08s), hide calc(var(--index) * .08s);
 
     &:hover {
-      color: #fff3b1;
       transform: translateX(-10px);
     }
 

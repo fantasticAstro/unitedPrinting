@@ -28,7 +28,7 @@ export const FEATURES: Feature[] = [
       'Pocket Folders',
       'Calendars',
     ],
-    image: 'printers',
+    image: 'printing',
   },
   {
     title: 'Offset Printing',
@@ -71,7 +71,27 @@ export const FEATURES: Feature[] = [
       'Window Graphics ',
       'Wall Graphics',
     ],
-    image: 'wide-format2',
+    image: 'printers',
+  },
+  {
+    title: 'Mailing',
+    label: 'Mailing',
+    paragraphs: [
+      'With over two decades of fulfillment and mailing experience, our logistics team ensures that order always arrives in the most efficient and cost-effective way possible.',
+      'Our complete mailing services include CASS and NCOA certification, data base maintenance, dupe elimination, and local delivery/pick-up options.',
+    ],
+    products: [],
+    image: 'mailing',
+  },
+  {
+    title: 'Online Storefront & Fulfillment',
+    label: 'Storefront & Fulfillment',
+    paragraphs: [
+      'Customize your very own interactive storefront and make ordering your favorite products even easier.',
+      'We provide a variety of fulfillment solutions, such as assembly and kitting, inventory management, static/variable print options and specialized reporting and tracking.',
+    ],
+    products: [],
+    image: 'storefront',
   },
   {
     title: 'Graphic Design',
@@ -80,13 +100,6 @@ export const FEATURES: Feature[] = [
       'Develop your vision with our team of experienced graphic designers. In addition to making sure that every one of your products is perfectly formatted and ready-to-print, we offer logo, web and marketing design. Enjoying this website? Click the link below to start a conversation with the people who created it.',
     ],
     products: [],
-    image: 'colors',
-  },
-  {
-    title: 'Online Storefront & Fulfillment',
-    label: 'Storefront & Fulfillment',
-    paragraphs: [],
-    products: [],
-    image: '',
+    image: 'colors2',
   },
 ];

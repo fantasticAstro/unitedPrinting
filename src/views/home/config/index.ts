@@ -69,8 +69,32 @@ export const PRESETS: Preset[] = [
   {
     title: [
       {
+        accent: true,
+        text: 'Charlotte\'s',
+      },
+      {
         accent: false,
-        text: 'Dedication',
+        text: 'top',
+      },
+      {
+        accent: false,
+        text: 'commercial',
+      },
+      {
+        accent: true,
+        text: 'printer',
+      },
+    ],
+    background: 'printing',
+    rings: false,
+    veteran: false,
+    supplementaryText: '"Established in 1996, United Printing Company was built on a timeless foundation—the latest technology, best-in-class customer service, and superior logistics. Our goal was simply to print the best product possible. Twenty seven years later, we continue to stay at the forefront of the industry by doing just that.',
+  },
+  {
+    title: [
+      {
+        accent: false,
+        text: 'Dedicated',
       },
       {
         accent: false,
@@ -117,11 +141,11 @@ export const PRESETS: Preset[] = [
   {
     title: [
       {
-        accent: false,
+        accent: true,
         text: 'Veteran',
       },
       {
-        accent: true,
+        accent: false,
         text: 'owned',
       },
       {
@@ -129,11 +153,11 @@ export const PRESETS: Preset[] = [
         text: 'and',
       },
       {
-        accent: false,
+        accent: true,
         text: 'operated',
       },
     ],
-    background: 'military-0',
+    background: 'american-flag2',
     rings: false,
     veteran: true,
     supplementaryText: 'Good leaders diligently model the behaviors they expect and inspire other team members to do the same. Facilitating and encouraging integrity, self-confidencea and teamwork are top priorities. By maintaining a thriving, cohesive unit within the workplace, Team United’s veteran leadership ultimately serves to amplify the experience and success of our clients.',
