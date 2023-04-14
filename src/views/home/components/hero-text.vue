@@ -123,6 +123,7 @@ export default Vue.extend({
   .word {
     font-size: 95px;
     line-height: 100px;
+    font-weight: bolder;
   }
 }
 
