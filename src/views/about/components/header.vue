@@ -96,7 +96,7 @@ export default Vue.extend({
   grid-row-end: 2;
   border-radius: 10px;
   top: calc((100% - 40px) / 2);
-  animation: slide-in 0.5s ease-in-out 0s;
+  animation: slide-in 1.0s ease-in-out 0s;
 
   &.left {
     right: 0;
