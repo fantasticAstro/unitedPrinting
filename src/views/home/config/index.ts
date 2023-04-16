@@ -88,7 +88,7 @@ export const PRESETS: Preset[] = [
     background: 'printing',
     rings: false,
     veteran: false,
-    supplementaryText: '"Established in 1996, United Printing Company was built on a timeless foundation—the latest technology, best-in-class customer service, and superior logistics. Our goal was simply to print the best product possible. Twenty seven years later, we continue to stay at the forefront of the industry by doing just that.',
+    supplementaryText: 'Established in 1996, United Printing Company was built on a timeless foundation—the latest technology, best-in-class customer service, and superior logistics. Our goal was simply to print the best product possible. Twenty seven years later, we continue to stay at the forefront of the industry by doing just that.',
   },
   {
     title: [
