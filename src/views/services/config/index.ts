@@ -97,7 +97,7 @@ export const FEATURES: Feature[] = [
     title: 'Graphic Design',
     label: 'Graphic Design',
     paragraphs: [
-      'Develop your vision with our team of experienced graphic designers. In addition to making sure that every one of your products is perfectly formatted and ready-to-print, we offer logo, web and marketing design. Enjoying this website? Click the link below to start a conversation with the people who created it.',
+      'Develop your vision with our team of experienced graphic designers. In addition to making sure that every one of your products is perfectly formatted and ready-to-print, we offer logo, web and marketing design.',
     ],
     products: [],
     image: 'colors',
