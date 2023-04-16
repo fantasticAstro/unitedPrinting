@@ -72,11 +72,11 @@
           </p>
 
           <p>
-            Email: unitedprintingnc@
+            Email: info@
           </p>
 
           <p>
-            gmail.com
+            unitedprintingnc.com
           </p>
         </contact-method>
 
