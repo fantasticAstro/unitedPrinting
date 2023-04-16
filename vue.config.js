@@ -9,6 +9,6 @@ module.exports = defineConfig({
       '^/api': {
         target: 'https://united-printing-backend.vercel.app/api',
       },
-    }
+    },
   },
 });

@@ -26,15 +26,24 @@
 
       <div :class="$style.column">
         <contact-method type="COMPANY ADDRESS">
-          <p>
+          <p
+            :class="$style['maps-link']"
+            @keydown="goToGoogleMaps"
+            @click="goToGoogleMaps">
             8200-A Arrowridge
           </p>
 
-          <p>
+          <p
+            :class="$style['maps-link']"
+            @keydown="goToGoogleMaps"
+            @click="goToGoogleMaps">
             Blvd, Charlotte NC
           </p>
 
-          <p>
+          <p
+            :class="$style['maps-link']"
+            @keydown="goToGoogleMaps"
+            @click="goToGoogleMaps">
             28273
           </p>
         </contact-method>
@@ -232,6 +241,10 @@ export default Vue.extend({
 
     goToLinkedIn() {
       window.location.href = 'https://www.linkedin.com/company/unitedprinting/';
+    },
+
+    goToGoogleMaps() {
+      window.location.href = 'https://www.google.com/maps/place/United+Printing+Company/@35.1325055,-80.9114746,18.35z/data=!4m6!3m5!1s0x88569be33c2a30ad:0xbae6228de9ed7731!8m2!3d35.1327182!4d-80.9109003!16s%2Fg%2F1tg6wdhs';
     },
   },
 });
@@ -548,5 +561,9 @@ export default Vue.extend({
       max-width: 360px;
     }
   }
+}
+
+.maps-link {
+  cursor: pointer;
 }
 </style>

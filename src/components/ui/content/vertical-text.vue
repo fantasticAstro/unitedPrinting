@@ -22,7 +22,7 @@ export default Vue.extend({
   props: {
     /**
      * Used for letter keys.
-     * 
+     *
      * @type {string}
      * @default '*******' Random string
      */
@@ -33,7 +33,7 @@ export default Vue.extend({
 
     /**
      * Text to be displayed.
-     * 
+     *
      * @type {string}
      * @default ''
      */
