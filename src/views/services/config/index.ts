@@ -77,7 +77,7 @@ export const FEATURES: Feature[] = [
     title: 'Mailing',
     label: 'Mailing',
     paragraphs: [
-      'With over two decades of fulfillment and mailing experience, our logistics team ensures that order always arrives in the most efficient and cost-effective way possible.',
+      'With over two decades of fulfillment and mailing experience, our logistics team ensures that your order always arrives in the most efficient and cost-effective way possible.',
       'Our complete mailing services include CASS and NCOA certification, data base maintenance, dupe elimination, and local delivery/pick-up options.',
     ],
     products: [],
