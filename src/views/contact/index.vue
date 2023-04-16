@@ -90,7 +90,7 @@
           <p
             @keydown="goToServices"
             @click="goToServices">
-            Check out our services page for more information <v-icon>mdi-chevron-right</v-icon>
+            Check out our Services page for more information <v-icon>mdi-chevron-right</v-icon>
           </p>
         </div>
       </div>
