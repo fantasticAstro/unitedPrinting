@@ -97,18 +97,18 @@ export default Vue.extend({
 
     &.first {
       align-self: flex-start;
-      animation: slide-right 0.4s ease-in-out 0s;
+      animation: slide-right 0.8s ease-in-out 0s;
     }
 
     &.second {
       align-self: flex-end;
-      animation: slide-left 0.4s ease-in-out 0.2s, hide 0.2s linear 0s;
+      animation: slide-left 0.8s ease-in-out 0.2s, hide 0.2s linear 0s;
     }
 
     &.third {
       align-self: center;
       color: #FEE137;
-      animation: slide-right 0.4s ease-in-out 0.4s, hide 0.4s linear 0s;
+      animation: slide-right 0.8s ease-in-out 0.4s, hide 0.4s linear 0s;
     }
   }
 }
