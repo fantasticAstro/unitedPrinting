@@ -279,9 +279,10 @@ export default Vue.extend({
     status(): string {
       if (!this.attempted && !this.sent) {
         return 'Send';
-      } if (this.attempted && !this.sent) {
-        return 'Failed to Send';
       }
+      // } if (this.attempted && !this.sent) {
+      //   return 'Failed to Send';
+      // }
       return 'Sent Successfully';
     },
   },
