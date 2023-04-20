@@ -19,6 +19,11 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/about/index.vue'),
   },
   {
+    path: '/about-us',
+    name: 'about',
+    component: () => import('../views/about/index.vue'),
+  },
+  {
     path: '/services',
     name: 'services',
     component: () => import('../views/services/index.vue'),
@@ -30,6 +35,11 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/quote',
+    name: 'quote',
+    component: () => import('../views/quote/index.vue'),
+  },
+  {
+    path: '/request-quote',
     name: 'quote',
     component: () => import('../views/quote/index.vue'),
   },
