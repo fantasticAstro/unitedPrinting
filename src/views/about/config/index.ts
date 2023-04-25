@@ -32,7 +32,7 @@ export const FEATURES: Feature[] = [
   {
     label: 'VETERAN OWNED',
     paragraphs: [
-      'Good leaders diligently model the behaviors they expect and inspire other team members to do the same. Facilitating and encouraging integrity, self-confidencea and teamwork are top priorities.',
+      'Good leaders diligently model the behaviors they expect and inspire other team members to do the same. Facilitating and encouraging integrity, self-confidence and teamwork are top priorities.',
       'By maintaining a thriving, cohesive unit within the workplace, Team United’s veteran leadership ultimately serves to amplify the experience and success of our clients.',
     ],
     highlight: 'Veteran leadership that promotes the success of all.',

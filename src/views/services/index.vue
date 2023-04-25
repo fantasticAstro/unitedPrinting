@@ -94,6 +94,7 @@ export default Vue.extend({
 
 <style lang="scss" module>
 .component {
+  padding-bottom: 60px;
 }
 
 .content {
