@@ -195,6 +195,10 @@ import Vue from 'vue';
 import api from '../../api';
 import Dots from '../home/components/dots.vue';
 
+interface WindowWithGtagRef extends Window {
+  gtagRef?: (arg0: string, arg1: string, arg2: object) => void;
+}
+
 export default Vue.extend({
   name: 'quote-view',
 
@@ -313,6 +317,14 @@ export default Vue.extend({
         this.proofType,
         this.shipping,
       );
+
+      try {
+        if ('gtagRef' in window) {
+          ((window as WindowWithGtagRef).gtagRef as (arg0: string, arg1: string, arg2: object) => void)('event', 'conversion', { send_to: 'AW-10880773539/wDx4CP6q25gYEKPbrcQo' });
+        }
+      } catch (error) {
+        console.log(error);
+      }
 
       this.processing = false;
     },
