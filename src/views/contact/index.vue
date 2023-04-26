@@ -210,6 +210,9 @@ import Vue from 'vue';
 import ContactMethod from './components/method.vue';
 import Dots from '../home/components/dots.vue';
 
+// Types
+import { WindowWithGtagRef } from '../../types/index';
+
 export default Vue.extend({
   name: 'contact-view',
 
@@ -244,6 +247,14 @@ export default Vue.extend({
     },
 
     goToGoogleMaps() {
+      try {
+        if ('gtagRef' in window) {
+          ((window as WindowWithGtagRef).gtagRef as (arg0: string, arg1: string, arg2: object) => void)('event', 'conversion', { send_to: 'AW-10880773539/u9XbCJPBsZoYEKPbrcQo', value: 10.0, currency: 'USD' });
+        }
+      } catch (error) {
+        console.log(error);
+      }
+
       window.location.href = 'https://www.google.com/maps/place/United+Printing+Company/@35.1325055,-80.9114746,18.35z/data=!4m6!3m5!1s0x88569be33c2a30ad:0xbae6228de9ed7731!8m2!3d35.1327182!4d-80.9109003!16s%2Fg%2F1tg6wdhs';
     },
   },

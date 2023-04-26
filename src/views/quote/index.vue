@@ -195,9 +195,8 @@ import Vue from 'vue';
 import api from '../../api';
 import Dots from '../home/components/dots.vue';
 
-interface WindowWithGtagRef extends Window {
-  gtagRef?: (arg0: string, arg1: string, arg2: object) => void;
-}
+// Types
+import { WindowWithGtagRef } from '../../types/index';
 
 export default Vue.extend({
   name: 'quote-view',
